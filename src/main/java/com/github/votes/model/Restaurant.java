@@ -3,18 +3,18 @@ package com.github.votes.model;
 import java.util.List;
 
 public class Restaurant extends AbstractNamedEntity {
-    private List<Dish> lunchMenu;
+    private int vote;
 
-    public Restaurant(int id, String name, List<Dish> lunchMenu) {
+    public Restaurant(int id, String name, int vote) {
         super(id, name);
-        this.lunchMenu = lunchMenu;
+        this.vote = vote;
     }
 
-    public List<Dish> getLunchMenu() {
-        return lunchMenu;
+    public int getVote() {
+        return vote;
     }
 
-    public void setLunchMenu(List<Dish> lunchMenu) {
-        this.lunchMenu = lunchMenu;
+    public void setVote(int vote) {
+        this.vote = vote;
     }
 }
