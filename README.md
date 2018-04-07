@@ -1,6 +1,7 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1aa8b5c5e51844e4b3ae8d48116f25fe)](https://www.codacy.com/app/blaec/topjava?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=blaec/topjava&amp;utm_campaign=Badge_Grade)
-[![Build Status](https://travis-ci.org/blaec/topjava.svg?branch=master)](https://travis-ci.org/blaec/topjava)
-[![Dependency Status](https://www.versioneye.com/user/projects/5a17ec360fb24f213f8d5650/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5a17ec360fb24f213f8d5650)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dead4a4d238d4022928ee32f192cac1d)](https://www.codacy.com/app/blaec/Restaurant-vote?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=blaec/Restaurant-vote&amp;utm_campaign=Badge_Grade)
+[![Build Status](https://travis-ci.org/blaec/Restaurant-vote.svg?branch=master)](https://travis-ci.org/blaec/Restaurant-vote)
+[![Dependency Status](https://www.versioneye.com/user/projects/5ac91db30fb24f39e74fbaf3/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/5ac91db30fb24f39e74fbaf3)
+[![codecov](https://codecov.io/gh/blaec/Restaurant-vote/branch/master/graph/badge.svg)](https://codecov.io/gh/blaec/Restaurant-vote)
 
 ## Тестовое задание на оплачиваемую стажировку
 
