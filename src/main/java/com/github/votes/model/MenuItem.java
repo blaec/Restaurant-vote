@@ -3,23 +3,23 @@ package com.github.votes.model;
 import java.time.LocalDateTime;
 
 public class MenuItem extends AbstactBaseEntiry {
-    private User user;
+    private Dish dish;
     private Restaurant restaurant;
     private LocalDateTime added;
 
-    public MenuItem(int id, User user, Restaurant restaurant, LocalDateTime added) {
+    public MenuItem(int id, Dish dish, Restaurant restaurant, LocalDateTime added) {
         super(id);
-        this.user = user;
+        this.dish = dish;
         this.restaurant = restaurant;
         this.added = added;
     }
 
-    public User getUser() {
-        return user;
+    public Dish getDish() {
+        return dish;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setDish(Dish dish) {
+        this.dish = dish;
     }
 
     public Restaurant getRestaurant() {

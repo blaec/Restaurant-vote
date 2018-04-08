@@ -1,5 +1,6 @@
 package com.github.votes.repository;
 
-public interface UserRepository {
-    boolean vote(int restaurantId);
+import com.github.votes.model.User;
+
+public interface UserRepository extends DataRepository<User>{
 }
