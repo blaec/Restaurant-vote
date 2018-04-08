@@ -3,18 +3,18 @@ package com.github.votes.model;
 import java.util.Set;
 
 public class User extends AbstractNamedEntity {
-    private Set<Role> roles;
+    private Role roles;
 
-    public User(int id, String name, Set<Role> roles) {
+    public User(int id, String name, Role roles) {
         super(id, name);
         this.roles = roles;
     }
 
-    public Set<Role> getRoles() {
+    public Role getRoles() {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
+    public void setRoles(Role roles) {
         this.roles = roles;
     }
 }
