@@ -1,6 +1,8 @@
 package com.github.votes.model;
 
-public abstract class AbstactBaseEntiry {
+import com.github.votes.to.HasId;
+
+public abstract class AbstactBaseEntiry implements HasId {
 
     public static final int START_SEQ = 100000;
 
@@ -10,11 +12,11 @@ public abstract class AbstactBaseEntiry {
         this.id = id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 }
