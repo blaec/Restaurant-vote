@@ -2,6 +2,7 @@ package com.github.votes.repository.mock;
 
 import com.github.votes.model.MenuItem;
 import com.github.votes.repository.MenuItemRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
+@Repository
 public class InMemoryMenuItemRepositoryImpl implements MenuItemRepository {
 
     private Map<Integer, MenuItem> repository = new ConcurrentHashMap<>();

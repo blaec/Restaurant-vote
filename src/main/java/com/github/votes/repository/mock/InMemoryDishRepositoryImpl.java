@@ -2,6 +2,7 @@ package com.github.votes.repository.mock;
 
 import com.github.votes.model.Dish;
 import com.github.votes.repository.DishRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static com.github.votes.repository.mock_data.DishTestData.*;
 
+@Repository
 public class InMemoryDishRepositoryImpl implements DishRepository {
 
     private Map<Integer, Dish> repository = new ConcurrentHashMap<>();

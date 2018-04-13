@@ -2,6 +2,7 @@ package com.github.votes.repository.mock;
 
 import com.github.votes.model.User;
 import com.github.votes.repository.UserRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static com.github.votes.repository.mock_data.UserTestData.*;
 
+@Repository
 public class InMemoryUserRepositoryImpl implements UserRepository {
 
     private Map<Integer, User> repository = new ConcurrentHashMap<>();

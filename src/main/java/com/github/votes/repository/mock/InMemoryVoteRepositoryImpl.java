@@ -2,11 +2,13 @@ package com.github.votes.repository.mock;
 
 import com.github.votes.model.Vote;
 import com.github.votes.repository.VoteRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Repository
 public class InMemoryVoteRepositoryImpl implements VoteRepository {
 
     private Map<Integer, Map<Integer, Vote>> repository = new ConcurrentHashMap<>();

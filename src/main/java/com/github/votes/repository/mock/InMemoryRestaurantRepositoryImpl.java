@@ -2,6 +2,7 @@ package com.github.votes.repository.mock;
 
 import com.github.votes.model.Restaurant;
 import com.github.votes.repository.RestaurantRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import static com.github.votes.repository.mock_data.RestaurantTestData.*;
 
+@Repository
 public class InMemoryRestaurantRepositoryImpl implements RestaurantRepository {
 
     private Map<Integer, Restaurant> repository = new ConcurrentHashMap<>();
