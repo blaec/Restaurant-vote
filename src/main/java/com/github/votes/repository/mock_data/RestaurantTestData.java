@@ -5,7 +5,7 @@ import com.github.votes.model.Restaurant;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.github.votes.model.AbstactBaseEntiry.START_SEQ;
+import static com.github.votes.model.AbstractBaseEntity.START_SEQ;
 
 public class RestaurantTestData {
     public static final int RESTAURANT_ID_1 = START_SEQ + 5;

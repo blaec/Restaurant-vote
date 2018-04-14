@@ -3,11 +3,7 @@ package com.github.votes;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Month;
 import java.util.Arrays;
-import java.util.List;
 
 public class SpringMain {
     public static void main(String[] args) {

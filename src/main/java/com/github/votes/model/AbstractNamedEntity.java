@@ -1,6 +1,6 @@
 package com.github.votes.model;
 
-public abstract class AbstractNamedEntity extends AbstactBaseEntiry {
+public abstract class AbstractNamedEntity extends AbstractBaseEntity {
     private String name;
 
     public AbstractNamedEntity(int id, String name) {

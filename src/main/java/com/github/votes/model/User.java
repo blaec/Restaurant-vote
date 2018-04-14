@@ -1,7 +1,5 @@
 package com.github.votes.model;
 
-import java.util.Set;
-
 public class User extends AbstractNamedEntity {
     private Role roles;
 

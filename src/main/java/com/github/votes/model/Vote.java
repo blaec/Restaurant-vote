@@ -2,7 +2,7 @@ package com.github.votes.model;
 
 import java.time.LocalDateTime;
 
-public class Vote extends AbstactBaseEntiry {
+public class Vote extends AbstractBaseEntity {
     private Restaurant restaurant;
     private User user;
     private LocalDateTime taken;

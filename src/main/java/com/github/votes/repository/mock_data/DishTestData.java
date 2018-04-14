@@ -5,7 +5,7 @@ import com.github.votes.model.Dish;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.github.votes.model.AbstactBaseEntiry.START_SEQ;
+import static com.github.votes.model.AbstractBaseEntity.START_SEQ;
 
 public class DishTestData {
     public static final int DISH_ID_01 = START_SEQ + 10;

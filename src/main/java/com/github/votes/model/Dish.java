@@ -1,6 +1,6 @@
 package com.github.votes.model;
 
-public class Dish extends AbstactBaseEntiry {
+public class Dish extends AbstractBaseEntity {
     private String description;
     private int price;
 

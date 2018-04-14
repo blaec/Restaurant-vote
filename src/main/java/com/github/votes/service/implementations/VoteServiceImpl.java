@@ -30,7 +30,7 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
-    public Vote update(Vote vote, int id, int restaurantId) {
-        return repository.update(vote, id, restaurantId);
+    public Vote update(Vote vote, int userId, int restaurantId) {
+        return repository.update(vote, userId, restaurantId);
     }
 }

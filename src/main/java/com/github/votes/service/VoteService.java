@@ -9,5 +9,5 @@ public interface VoteService {
 
     void delete(int userId, int restaurantId) throws NotFoundException;
 
-    Vote update(Vote vote, int id, int restaurantId);
+    Vote update(Vote vote, int userId, int restaurantId);
 }

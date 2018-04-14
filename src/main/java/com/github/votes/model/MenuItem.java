@@ -2,7 +2,7 @@ package com.github.votes.model;
 
 import java.time.LocalDateTime;
 
-public class MenuItem extends AbstactBaseEntiry {
+public class MenuItem extends AbstractBaseEntity {
     private Dish dish;
     private Restaurant restaurant;
     private LocalDateTime added;
