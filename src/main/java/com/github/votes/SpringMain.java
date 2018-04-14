@@ -15,11 +15,11 @@ import static com.github.votes.repository.mock_data.UserTestData.ADMIN_ID_1;
 import static com.github.votes.repository.mock_data.UserTestData.USER_ID_1;
 
 public class SpringMain {
-    private static final String UNDER_LINE = "=======================\n";
+    private static final String UNDER_LINE = "==========================================================================";
 
     public static void main(String[] args) {
 
-        try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring-app.xml")) {
+        try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml")) {
             System.out.println("\nBean definition names: " +
                     "\n=======================");
             Arrays.stream(appCtx.getBeanDefinitionNames()).forEach(System.out::println);
@@ -78,7 +78,7 @@ public class SpringMain {
             // Test Vote rest controller
             VoteRestController voteRestController = appCtx.getBean(VoteRestController.class);
             Vote vote = new Vote(null, restaurant_3, user_1, LocalDateTime.now());
-            System.out.println(voteRestController.save(vote));
+            System.out.println(voteRestController.take(vote));
             System.out.println(voteRestController.get(1));
             voteRestController.delete(1);
 //            System.out.println(voteRestController.get(1));
