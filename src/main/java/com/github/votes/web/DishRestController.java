@@ -1,7 +1,7 @@
 package com.github.votes.web;
 
-import com.github.votes.model.Restaurant;
-import com.github.votes.service.RestaurantService;
+import com.github.votes.model.Dish;
+import com.github.votes.service.DishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,20 +12,20 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = RestaurantController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
-public class RestaurantController {
-    static final String REST_URL = "/rest/profile/restaurant";
+@RequestMapping(value = DishRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
+public class DishRestController {
+    static final String REST_URL = "/rest/profile/dish";
 
     @Autowired
-    private RestaurantService service;
+    private DishService service;
 
     @GetMapping("/{id}")
-    public Restaurant get(@PathVariable("id") int id) {
+    public Dish get(@PathVariable("id") int id) {
         return service.get(id);
     }
 
     @GetMapping
-    public List<Restaurant> getAll() {
+    public List<Dish> getAll() {
         return service.getAll();
     }
 }

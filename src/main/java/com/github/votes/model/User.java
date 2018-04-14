@@ -15,4 +15,13 @@ public class User extends AbstractNamedEntity {
     public void setRoles(Role roles) {
         this.roles = roles;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + super.getId() + '\'' +
+                ", name='" + super.getName() + '\'' +
+                ", roles=" + roles +
+                '}';
+    }
 }

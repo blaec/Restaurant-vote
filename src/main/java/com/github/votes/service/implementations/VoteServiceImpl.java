@@ -20,17 +20,17 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
-    public Vote get(int userId, int restaurantId) throws NotFoundException {
-        return checkNotFoundWithId(repository.get(userId, restaurantId), userId);
+    public Vote get(int id, int userId) throws NotFoundException {
+        return checkNotFoundWithId(repository.get(id, userId), userId);
     }
 
     @Override
-    public void delete(int userId, int restaurantId) throws NotFoundException {
-        checkNotFoundWithId(repository.delete(userId, restaurantId), userId);
+    public void delete(int id, int userId) throws NotFoundException {
+        checkNotFoundWithId(repository.delete(id, userId), id);
     }
 
     @Override
-    public Vote update(Vote vote, int userId, int restaurantId) {
-        return repository.update(vote, userId, restaurantId);
+    public Vote save(Vote vote, int userId) {
+        return repository.save(vote, userId);
     }
 }

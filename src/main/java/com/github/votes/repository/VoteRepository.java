@@ -4,9 +4,9 @@ import com.github.votes.model.Vote;
 
 public interface VoteRepository {
 
-    Vote get(int userId, int restaurantId);
+    Vote get(int id, int userId);
 
-    Vote update(Vote vote, int userId, int restaurantId);
+    Vote save(Vote vote, int userId);
 
-    boolean delete(int userId, int restaurantId);
+    boolean delete(int id, int userId);
 }

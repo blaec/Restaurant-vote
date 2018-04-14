@@ -16,7 +16,7 @@ public class InMemoryUserRepositoryImpl implements UserRepository {
 
     private Map<Integer, User> repository = new ConcurrentHashMap<>();
 
-    public void init() {
+    {
         repository.clear();
         repository.put(ADMIN_ID_1, ADMIN_1);
         repository.put(ADMIN_ID_2, ADMIN_2);

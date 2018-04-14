@@ -16,7 +16,7 @@ public class InMemoryRestaurantRepositoryImpl implements RestaurantRepository {
 
     private Map<Integer, Restaurant> repository = new ConcurrentHashMap<>();
 
-    public void init() {
+    {
         repository.clear();
         repository.put(RESTAURANT_ID_1, RESTAURANT_1);
         repository.put(RESTAURANT_ID_2, RESTAURANT_2);

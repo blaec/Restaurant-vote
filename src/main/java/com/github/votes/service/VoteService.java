@@ -5,9 +5,9 @@ import com.github.votes.util.exception.NotFoundException;
 
 public interface VoteService {
 
-    Vote get(int userId, int restaurantId) throws NotFoundException;
+    Vote get(int id, int userId) throws NotFoundException;
 
-    void delete(int userId, int restaurantId) throws NotFoundException;
+    void delete(int id, int userId) throws NotFoundException;
 
-    Vote update(Vote vote, int userId, int restaurantId);
+    Vote save(Vote vote, int userId);
 }

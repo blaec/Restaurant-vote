@@ -16,7 +16,7 @@ public class InMemoryDishRepositoryImpl implements DishRepository {
 
     private Map<Integer, Dish> repository = new ConcurrentHashMap<>();
 
-    public void init() {
+    {
         repository.clear();
         repository.put(DISH_ID_01, DISH_01);
         repository.put(DISH_ID_02, DISH_02);

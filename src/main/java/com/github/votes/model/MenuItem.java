@@ -7,7 +7,7 @@ public class MenuItem extends AbstractBaseEntity {
     private Restaurant restaurant;
     private LocalDateTime added;
 
-    public MenuItem(int id, Dish dish, Restaurant restaurant, LocalDateTime added) {
+    public MenuItem(Integer id, Dish dish, Restaurant restaurant, LocalDateTime added) {
         super(id);
         this.dish = dish;
         this.restaurant = restaurant;
@@ -36,5 +36,15 @@ public class MenuItem extends AbstractBaseEntity {
 
     public void setAdded(LocalDateTime added) {
         this.added = added;
+    }
+
+    @Override
+    public String toString() {
+        return "MenuItem{" +
+                "id='" + super.getId() + '\'' +
+                ", dish=" + dish +
+                ", restaurant=" + restaurant +
+                ", added=" + added +
+                '}';
     }
 }

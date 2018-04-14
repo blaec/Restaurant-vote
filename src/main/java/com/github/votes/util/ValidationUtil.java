@@ -24,7 +24,7 @@ public class ValidationUtil {
     }
 
     private static <T> List<T> checkNotFound(List<T> list, String msg) {
-        checkNotFound(list.isEmpty(), msg);
+        checkNotFound(!list.isEmpty(), msg);
         return list;
     }
 

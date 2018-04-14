@@ -25,4 +25,13 @@ public class Dish extends AbstractBaseEntity {
     public void setPrice(int price) {
         this.price = price;
     }
+
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "id='" + super.getId() + '\'' +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
+    }
 }
