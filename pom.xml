@@ -24,6 +24,9 @@
         <logback.version>1.2.3</logback.version>
         <slf4j.version>1.7.25</slf4j.version>
 
+        <!--    Tests  -->
+        <junit.version>4.12</junit.version>
+
         <!-- Hibernate -->
         <hibernate.version>5.2.12.Final</hibernate.version>
         <hibernate-validator.version>6.0.7.Final</hibernate-validator.version>
@@ -48,6 +51,20 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <!--code coverage-->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <formats>
+                        <format>html</format>
+                        <format>xml</format>
+                    </formats>
+                    <check />
                 </configuration>
             </plugin>
         </plugins>
@@ -89,14 +106,30 @@
             </exclusions>
         </dependency>
 
-        <!--DataBase-->
+        <!--Test-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring.version}</version>
+            <scope>test</scope>
+        </dependency>
+<!--
+        &lt;!&ndash;DataBase&ndash;&gt;
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${hsqldb.version}</version>
         </dependency>
+-->
 
-        <!--- ORM -->
+<!--
+        &lt;!&ndash;- ORM &ndash;&gt;
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -108,13 +141,14 @@
             <version>${hibernate-validator.version}</version>
         </dependency>
 
-        <!--http://hibernate.org/validator/documentation/getting-started/#unified-expression-language-el-->
+        &lt;!&ndash;http://hibernate.org/validator/documentation/getting-started/#unified-expression-language-el&ndash;&gt;
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.el</artifactId>
             <version>${javax-el.version}</version>
             <scope>provided</scope>
         </dependency>
+-->
 
         <!--Web-->
         <dependency>

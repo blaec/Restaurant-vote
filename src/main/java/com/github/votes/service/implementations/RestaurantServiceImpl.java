@@ -7,7 +7,9 @@ import com.github.votes.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.github.votes.util.ValidationUtil.checkNotFoundWithId;
 
@@ -28,6 +30,8 @@ public class RestaurantServiceImpl implements RestaurantService {
 
     @Override
     public List<Restaurant> getAll() {
-        return repository.getAll();
+        return repository.getAll().stream()
+                .sorted(Comparator.comparing(Restaurant::getId))
+                .collect(Collectors.toList());
     }
 }

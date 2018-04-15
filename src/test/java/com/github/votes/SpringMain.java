@@ -79,8 +79,8 @@ public class SpringMain {
             VoteRestController voteRestController = appCtx.getBean(VoteRestController.class);
             Vote vote = new Vote(null, restaurant_3, user_1, LocalDateTime.now());
             System.out.println(voteRestController.take(vote));
-            System.out.println(voteRestController.get(1));
-            voteRestController.delete(1);
+            System.out.println(voteRestController.get());
+            voteRestController.delete();
 //            System.out.println(voteRestController.get(1));
             System.out.println(UNDER_LINE);
         }

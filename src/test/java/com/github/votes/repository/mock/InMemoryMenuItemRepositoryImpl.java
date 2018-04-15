@@ -11,11 +11,21 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
+import static com.github.votes.repository.mock_data.MenuItemTestData.*;
+
 @Repository
 public class InMemoryMenuItemRepositoryImpl implements MenuItemRepository {
 
     private Map<Integer, MenuItem> repository = new ConcurrentHashMap<>();
     private AtomicInteger counter = new AtomicInteger(0);
+
+    public void init(){
+        repository.clear();
+        repository.put(MENU_ITEM_ID_01, MENU_ITEM_01);
+        repository.put(MENU_ITEM_ID_02, MENU_ITEM_02);
+        repository.put(MENU_ITEM_ID_03, MENU_ITEM_03);
+        repository.put(MENU_ITEM_ID_04, MENU_ITEM_04);
+    }
 
     @Override
     public List<MenuItem> getByRestaurant(int restaurantId) {

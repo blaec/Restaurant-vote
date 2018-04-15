@@ -18,18 +18,18 @@ public class VoteRestController {
     @Autowired
     private VoteService service;
 
-    @GetMapping("/{id}")
-    public Vote get(@PathVariable("id") int id) {
+    @GetMapping
+    public Vote get() {
         int userId = AuthorizedUser.id();
-        log.info("get vote with id {} for user {}", id, userId);
-        return service.get(id, userId);
+        log.info("get vote for user {}", userId);
+        return service.get(userId);
     }
 
-    @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") int id) {
+    @DeleteMapping
+    public void delete() {
         int userId = AuthorizedUser.id();
-        log.info("delete vote {} for user {}", id, userId);
-        service.delete(id, userId);
+        log.info("delete vote for user {}", userId);
+        service.delete(userId);
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -3,6 +3,8 @@ package com.github.votes.repository.mock_data;
 import com.github.votes.model.Dish;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static com.github.votes.model.AbstractBaseEntity.START_SEQ;
@@ -30,5 +32,5 @@ public class DishTestData {
     public static final Dish DISH_09 = new Dish(DISH_ID_09, "dish_09", 1000);
     public static final Dish DISH_10 = new Dish(DISH_ID_10, "dish_10", 10);
 
-    public static final List<Dish> DISHES = Arrays.asList(DISH_01, DISH_02, DISH_03, DISH_04, DISH_05, DISH_06, DISH_07, DISH_08, DISH_09, DISH_10);
+    public static final List<Dish> DISHES = Collections.unmodifiableList(Arrays.asList(DISH_01, DISH_02, DISH_03, DISH_04, DISH_05, DISH_06, DISH_07, DISH_08, DISH_09, DISH_10));
 }

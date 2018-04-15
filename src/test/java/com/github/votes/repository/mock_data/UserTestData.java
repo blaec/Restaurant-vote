@@ -4,6 +4,7 @@ import com.github.votes.model.Role;
 import com.github.votes.model.User;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static com.github.votes.model.AbstractBaseEntity.START_SEQ;
@@ -21,5 +22,5 @@ public class UserTestData {
     public static final User USER_2 = new User(USER_ID_2, "user_2", Role.ROLE_USER);
     public static final User USER_3 = new User(USER_ID_3, "user_3", Role.ROLE_USER);
 
-    public static final List<User> USERS = Arrays.asList(ADMIN_1, ADMIN_2, USER_1, USER_2, USER_3);
+    public static final List<User> USERS = Collections.unmodifiableList(Arrays.asList(ADMIN_1, ADMIN_2, USER_1, USER_2, USER_3));
 }
