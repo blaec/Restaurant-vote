@@ -13,10 +13,10 @@ import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURAN
 import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_3;
 
 public class MenuItemTestData {
-    public static final int MENU_ITEM_ID_01 = START_SEQ + 30;
-    public static final int MENU_ITEM_ID_02 = START_SEQ + 31;
-    public static final int MENU_ITEM_ID_03 = START_SEQ + 32;
-    public static final int MENU_ITEM_ID_04 = START_SEQ + 33;
+    public static final int MENU_ITEM_ID_01 = START_SEQ + 20;
+    public static final int MENU_ITEM_ID_02 = START_SEQ + 21;
+    public static final int MENU_ITEM_ID_03 = START_SEQ + 22;
+    public static final int MENU_ITEM_ID_04 = START_SEQ + 23;
 
     public static final MenuItem MENU_ITEM_01 = new MenuItem(MENU_ITEM_ID_01, DISH_01, RESTAURANT_1, LocalDateTime.of(2001,1,1,11,11));
     public static final MenuItem MENU_ITEM_02 = new MenuItem(MENU_ITEM_ID_02, DISH_02, RESTAURANT_1, LocalDateTime.of(2001,1,1,12,12));

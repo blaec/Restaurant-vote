@@ -119,14 +119,13 @@
             <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
-<!--
-        &lt;!&ndash;DataBase&ndash;&gt;
+
+        <!--DataBase-->
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>${hsqldb.version}</version>
         </dependency>
--->
 
 <!--
         &lt;!&ndash;- ORM &ndash;&gt;

@@ -3,23 +3,22 @@ package com.github.votes.repository.mock_data;
 import com.github.votes.model.Dish;
 
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import static com.github.votes.model.AbstractBaseEntity.START_SEQ;
 
 public class DishTestData {
-    public static final int DISH_ID_01 = START_SEQ + 10;
-    public static final int DISH_ID_02 = START_SEQ + 11;
-    public static final int DISH_ID_03 = START_SEQ + 12;
-    public static final int DISH_ID_04 = START_SEQ + 13;
-    public static final int DISH_ID_05 = START_SEQ + 14;
-    public static final int DISH_ID_06 = START_SEQ + 15;
-    public static final int DISH_ID_07 = START_SEQ + 16;
-    public static final int DISH_ID_08 = START_SEQ + 17;
-    public static final int DISH_ID_09 = START_SEQ + 18;
-    public static final int DISH_ID_10 = START_SEQ + 19;
+    public static final int DISH_ID_01 = START_SEQ + 5;
+    public static final int DISH_ID_02 = START_SEQ + 6;
+    public static final int DISH_ID_03 = START_SEQ + 7;
+    public static final int DISH_ID_04 = START_SEQ + 8;
+    public static final int DISH_ID_05 = START_SEQ + 9;
+    public static final int DISH_ID_06 = START_SEQ + 10;
+    public static final int DISH_ID_07 = START_SEQ + 11;
+    public static final int DISH_ID_08 = START_SEQ + 12;
+    public static final int DISH_ID_09 = START_SEQ + 13;
+    public static final int DISH_ID_10 = START_SEQ + 14;
 
     public static final Dish DISH_01 = new Dish(DISH_ID_01, "dish_01", 100);
     public static final Dish DISH_02 = new Dish(DISH_ID_02, "dish_02", 200);

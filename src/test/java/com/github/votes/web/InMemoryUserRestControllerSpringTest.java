@@ -12,7 +12,7 @@ import java.util.List;
 
 import static com.github.votes.repository.mock_data.UserTestData.*;
 
-@ContextConfiguration("classpath:spring/spring-app.xml")
+@ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/mock.xml"})
 @RunWith(SpringRunner.class)
 public class InMemoryUserRestControllerSpringTest {
 

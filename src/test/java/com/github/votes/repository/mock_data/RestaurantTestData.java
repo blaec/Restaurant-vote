@@ -9,11 +9,11 @@ import java.util.List;
 import static com.github.votes.model.AbstractBaseEntity.START_SEQ;
 
 public class RestaurantTestData {
-    public static final int RESTAURANT_ID_1 = START_SEQ + 20;
-    public static final int RESTAURANT_ID_2 = START_SEQ + 21;
-    public static final int RESTAURANT_ID_3 = START_SEQ + 22;
-    public static final int RESTAURANT_ID_4 = START_SEQ + 23;
-    public static final int RESTAURANT_ID_5 = START_SEQ + 24;
+    public static final int RESTAURANT_ID_1 = START_SEQ + 15;
+    public static final int RESTAURANT_ID_2 = START_SEQ + 16;
+    public static final int RESTAURANT_ID_3 = START_SEQ + 17;
+    public static final int RESTAURANT_ID_4 = START_SEQ + 18;
+    public static final int RESTAURANT_ID_5 = START_SEQ + 19;
 
     public static final Restaurant RESTAURANT_1 = new Restaurant(RESTAURANT_ID_1, "restaurant_1");
     public static final Restaurant RESTAURANT_2 = new Restaurant(RESTAURANT_ID_2, "restaurant_2");
