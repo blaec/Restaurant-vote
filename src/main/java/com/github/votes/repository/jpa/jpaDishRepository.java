@@ -3,12 +3,14 @@ package com.github.votes.repository.jpa;
 import com.github.votes.model.Dish;
 import com.github.votes.repository.DishRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+@Transactional(readOnly = true)
 public class jpaDishRepository implements DishRepository {
 
     @PersistenceContext
@@ -21,6 +23,6 @@ public class jpaDishRepository implements DishRepository {
 
     @Override
     public List<Dish> getAll() {
-        return null;
+        return em.createNamedQuery(Dish.ALL_SORTED, Dish.class).getResultList();
     }
 }
