@@ -1,6 +1,7 @@
 package com.github.votes.model;
 
 import com.github.votes.to.HasId;
+import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 
@@ -38,7 +39,7 @@ public abstract class AbstractBaseEntity implements HasId {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (o == null || !getClass().equals(Hibernate.getClass(o))) {
             return false;
         }
         AbstractBaseEntity that = (AbstractBaseEntity) o;
