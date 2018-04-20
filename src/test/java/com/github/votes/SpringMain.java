@@ -19,8 +19,8 @@ public class SpringMain {
 
     public static void main(String[] args) {
 
-//        try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml","spring/spring-db.xml")) {
-        try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml","spring/mock.xml")) {
+        try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml","spring/spring-db.xml")) {
+//        try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml","spring/mock.xml")) {
             System.out.println("\nBean definition names: " +
                     "\n=======================");
             Arrays.stream(appCtx.getBeanDefinitionNames()).forEach(System.out::println);

@@ -5,6 +5,7 @@ import com.github.votes.repository.RestaurantRepository;
 import com.github.votes.service.RestaurantService;
 import com.github.votes.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -28,6 +29,7 @@ public class RestaurantServiceImpl implements RestaurantService {
         return checkNotFoundWithId(repository.get(id), id);
     }
 
+    @Cacheable("restaurants")
     @Override
     public List<Restaurant> getAll() {
         return repository.getAll().stream()
