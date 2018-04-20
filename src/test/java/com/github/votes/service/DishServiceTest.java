@@ -1,6 +1,7 @@
 package com.github.votes.service;
 
 import com.github.votes.model.Dish;
+import com.github.votes.util.exception.NotFoundException;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
 
+import static com.github.votes.model.AbstractBaseEntity.START_SEQ;
 import static com.github.votes.repository.mock_data.DishTestData.DISHES;
 import static com.github.votes.repository.mock_data.DishTestData.DISH_01;
 import static com.github.votes.repository.mock_data.DishTestData.DISH_ID_01;
@@ -42,6 +44,11 @@ public class DishServiceTest {
     public void get() throws Exception {
         Dish dish = service.get(DISH_ID_01);
         assertThat(DISH_01).isEqualTo(dish);
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void getNotFound() throws Exception {
+        service.get(START_SEQ - 1);
     }
 
     @Test
