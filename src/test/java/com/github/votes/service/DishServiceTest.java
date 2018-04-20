@@ -1,9 +1,11 @@
 package com.github.votes.service;
 
 import com.github.votes.model.Dish;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.CacheManager;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlConfig;
@@ -27,6 +29,14 @@ public class DishServiceTest {
 
     @Autowired
     private DishService service;
+
+    @Autowired
+    private CacheManager cacheManager;
+
+    @Before
+    public void setUp() throws Exception {
+        cacheManager.getCache("dishes").clear();
+    }
 
     @Test
     public void get() throws Exception {
