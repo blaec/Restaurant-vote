@@ -1,7 +1,24 @@
 package com.github.votes.model;
 
+import org.hibernate.validator.constraints.Range;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table(name = "dishes")
 public class Dish extends AbstractBaseEntity {
+
+    @Column(name = "description", nullable = false)
+    @NotBlank
+    @Size(max = 100)
     private String description;
+
+    @Column(name = "price", nullable = false)
+    @Range(min = 10, max = 10000)
     private int price;
 
     public Dish(int id, String description, int price) {

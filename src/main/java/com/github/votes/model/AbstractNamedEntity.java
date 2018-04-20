@@ -1,9 +1,21 @@
 package com.github.votes.model;
 
-public abstract class AbstractNamedEntity extends AbstractBaseEntity {
-    private String name;
+import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
-    public AbstractNamedEntity(int id, String name) {
+@MappedSuperclass
+public abstract class AbstractNamedEntity extends AbstractBaseEntity {
+
+    @NotBlank
+    @Size(min = 2, max = 100)
+    @Column(name = "name", nullable = false)
+    protected String name;
+
+    public AbstractNamedEntity() {}
+
+    protected AbstractNamedEntity(int id, String name) {
         super(id);
         this.name = name;
     }
@@ -14,5 +26,10 @@ public abstract class AbstractNamedEntity extends AbstractBaseEntity {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Entity %s (%s, '%s')", getClass().getName(), id, name);
     }
 }
