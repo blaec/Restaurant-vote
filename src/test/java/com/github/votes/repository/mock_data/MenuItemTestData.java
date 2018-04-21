@@ -24,4 +24,5 @@ public class MenuItemTestData {
     public static final MenuItem MENU_ITEM_04 = new MenuItem(MENU_ITEM_ID_04, DISH_04, RESTAURANT_3, LocalDateTime.of(2001,1,1,14,14));
 
     public static final List<MenuItem> MENU_ITEMS = Collections.unmodifiableList(Arrays.asList(MENU_ITEM_01, MENU_ITEM_02, MENU_ITEM_03, MENU_ITEM_04));
+    public static final List<MenuItem> MENU_ITEMS_REST = Collections.unmodifiableList(Arrays.asList(MENU_ITEM_03, MENU_ITEM_04));
 }
