@@ -5,6 +5,7 @@ import com.github.votes.repository.UserRepository;
 import com.github.votes.service.UserService;
 import com.github.votes.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.Comparator;
@@ -28,6 +29,7 @@ public class UserServiceImpl implements UserService {
         return checkNotFoundWithId(repository.get(id), id);
     }
 
+    @Cacheable("users")
     @Override
     public List<User> getAll() {
         return repository.getAll().stream()

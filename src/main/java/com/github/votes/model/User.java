@@ -1,19 +1,30 @@
 package com.github.votes.model;
 
+import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+
+@Entity
+@Table(name = "users")
 public class User extends AbstractNamedEntity {
-    private Role roles;
 
-    public User(int id, String name, Role roles) {
+    @Enumerated(EnumType.STRING)
+    @NotBlank
+    @Column(name = "role", nullable = false)
+    private Role role;
+
+    protected User() {}
+
+    public User(int id, String name, Role role) {
         super(id, name);
-        this.roles = roles;
+        this.role = role;
     }
 
-    public Role getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Role roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override
@@ -21,7 +32,7 @@ public class User extends AbstractNamedEntity {
         return "User{" +
                 "id='" + super.getId() + '\'' +
                 ", name='" + super.getName() + '\'' +
-                ", roles=" + roles +
+                ", role=" + role +
                 '}';
     }
 }
