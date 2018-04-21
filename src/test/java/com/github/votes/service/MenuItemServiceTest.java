@@ -29,7 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 })
 @RunWith(SpringRunner.class)
 @Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
-public class MenuItemTest {
+public class MenuItemServiceTest {
 
     @Autowired
     private MenuItemService service;
