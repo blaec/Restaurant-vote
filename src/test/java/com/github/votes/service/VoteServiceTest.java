@@ -28,17 +28,9 @@ public class VoteServiceTest {
     @Autowired
     private VoteService service;
 
-    @Autowired
-    private UserService userService;
-
-     @Autowired
-    private RestaurantService restaurantService;
-
     @Test
     public void get() throws Exception {
         Vote vote = service.get(USER_ID_1);
-//        vote.setUser(userService.get(vote.getUser().getId()));
-//        vote.setRestaurant(restaurantService.get(vote.getRestaurant().getId()));
         assertThat(VOTE_01).isEqualTo(vote);
     }
 
@@ -56,6 +48,7 @@ public class VoteServiceTest {
     @Test
     public void delete() throws Exception {
         service.delete(USER_ID_1);
+        // TODO required getAll to check delete status, statement below works only with manual debug
 //        assertThat(((DataJpaVoteRepository) ((VoteServiceImpl) service).repository).crudRepository.findAll().size() == 0);
     }
 

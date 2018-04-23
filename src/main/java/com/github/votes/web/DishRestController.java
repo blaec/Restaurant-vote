@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-
-
 @RestController
 @RequestMapping(value = DishRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class DishRestController {

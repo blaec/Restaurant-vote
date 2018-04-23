@@ -1,6 +1,7 @@
-package com.github.votes.web;
+package com.github.votes.web.in_memory;
 
 import com.github.votes.model.User;
+import com.github.votes.web.UserRestController;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

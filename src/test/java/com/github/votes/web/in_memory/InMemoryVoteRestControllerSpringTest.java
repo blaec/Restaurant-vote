@@ -1,7 +1,8 @@
-package com.github.votes.web;
+package com.github.votes.web.in_memory;
 
 import com.github.votes.model.Vote;
 import com.github.votes.repository.mock.InMemoryVoteRepositoryImpl;
+import com.github.votes.web.VoteRestController;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

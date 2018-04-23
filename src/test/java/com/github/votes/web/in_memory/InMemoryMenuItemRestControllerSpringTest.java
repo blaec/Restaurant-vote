@@ -1,8 +1,9 @@
-package com.github.votes.web;
+package com.github.votes.web.in_memory;
 
 import com.github.votes.model.MenuItem;
 import com.github.votes.repository.mock.InMemoryMenuItemRepositoryImpl;
 import com.github.votes.util.exception.NotFoundException;
+import com.github.votes.web.MenuItemRestController;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -4,6 +4,7 @@ import com.github.votes.model.*;
 import com.github.votes.web.*;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
@@ -19,8 +20,9 @@ public class SpringMain {
 
     public static void main(String[] args) {
 
-        try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml","spring/spring-db.xml")) {
-//        try (ConfigurableApplicationContext appCtx = new ClassPathXmlApplicationContext("spring/spring-app.xml","spring/mock.xml")) {
+        try (GenericXmlApplicationContext appCtx = new GenericXmlApplicationContext()) {
+            appCtx.load("spring/spring-app.xml", "spring/spring-db.xml");
+            appCtx.refresh();
             System.out.println("\nBean definition names: " +
                     "\n=======================");
             Arrays.stream(appCtx.getBeanDefinitionNames()).forEach(System.out::println);
