@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = MenuItemRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class MenuItemRestController {
-    static final String REST_URL = "/rest/profile/menu_item";
+    static final String REST_URL = "/rest/profile/menu_items";
     private final Logger log = LoggerFactory.getLogger(MenuItemRestController.class);
 
     @Autowired
@@ -38,15 +38,15 @@ public class MenuItemRestController {
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public MenuItem create(MenuItem menuItem){
+    public MenuItem create(@RequestBody MenuItem menuItem){
         log.info("create {}", menuItem);
         return service.create(menuItem);
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public MenuItem update(MenuItem menuItem) {
+    @PutMapping(value="/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
+    public MenuItem update(@RequestBody MenuItem menuItem, @PathVariable("id") int id) {
         log.info("update {}", menuItem);
-        return service.update(menuItem);
+        return service.update(menuItem, id);
     }
 
     @DeleteMapping("/{id}")

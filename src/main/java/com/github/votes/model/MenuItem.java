@@ -29,6 +29,10 @@ public class MenuItem extends AbstractBaseEntity {
 
     public MenuItem() {}
 
+    public MenuItem(Dish dish, Restaurant restaurant, LocalDateTime added) {
+        this(null, dish, restaurant, added);
+    }
+
     public MenuItem(Integer id, Dish dish, Restaurant restaurant, LocalDateTime added) {
         super(id);
         this.dish = dish;

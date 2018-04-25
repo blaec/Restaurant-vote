@@ -66,7 +66,7 @@ public class InMemoryMenuItemRestControllerSpringTest {
     @Test
     public void update() throws Exception {
         MenuItem menuItemUpdated = new MenuItem(MENU_ITEM_ID_02, DISH_03, RESTAURANT_3, LocalDateTime.of(2001, 1, 1, 12, 12));
-        MenuItem menuItem = controller.update(menuItemUpdated);
+        MenuItem menuItem = controller.update(menuItemUpdated, MENU_ITEM_ID_02);
         Assert.assertEquals(menuItem.getRestaurant(), RESTAURANT_3);
         Assert.assertEquals(menuItem.getDish(), DISH_03);
     }

@@ -15,7 +15,7 @@ public interface MenuItemService {
 
     MenuItem create(MenuItem menuItem);
 
-    MenuItem update(MenuItem menuItem);
+    MenuItem update(MenuItem menuItem, int id);
 
     void delete(int id) throws NotFoundException;
 }

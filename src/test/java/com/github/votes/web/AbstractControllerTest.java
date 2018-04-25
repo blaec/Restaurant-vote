@@ -17,6 +17,7 @@ import javax.annotation.PostConstruct;
 
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",
+        "classpath:spring/spring-mvc.xml",
         "classpath:spring/spring-db.xml"
 })
 @WebAppConfiguration

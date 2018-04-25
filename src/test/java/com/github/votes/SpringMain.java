@@ -2,8 +2,6 @@ package com.github.votes;
 
 import com.github.votes.model.*;
 import com.github.votes.web.*;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import java.time.LocalDateTime;
@@ -71,7 +69,7 @@ public class SpringMain {
             System.out.println(menuItemRestController.getByRestaurant(RESTAURANT_ID_3));
             // test update
             MenuItem menuItem_2_updated = new MenuItem(2, dish_2, restaurant_3, LocalDateTime.now());
-            menuItemRestController.update(menuItem_2_updated);
+            menuItemRestController.update(menuItem_2_updated, 2);
             System.out.println(menuItemRestController.getAll());
             // test delete
             menuItemRestController.delete(3);

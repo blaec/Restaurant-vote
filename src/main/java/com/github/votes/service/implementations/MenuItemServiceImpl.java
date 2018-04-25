@@ -49,7 +49,8 @@ public class MenuItemServiceImpl implements MenuItemService {
 
     @CacheEvict(value = "menu_items", allEntries = true)
     @Override
-    public MenuItem update(MenuItem menuItem) {
+    public MenuItem update(MenuItem menuItem, int id) {
+        //ToDo check here that id is consistent
         return repository.save(menuItem);
     }
 

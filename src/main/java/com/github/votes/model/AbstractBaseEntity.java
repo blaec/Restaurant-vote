@@ -1,17 +1,13 @@
 package com.github.votes.model;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.github.votes.to.HasId;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
 
-import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.ANY;
-import static com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility.NONE;
-
 @MappedSuperclass
 @Access(AccessType.FIELD)
-@JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, isGetterVisibility = NONE, setterVisibility = NONE)
+//@JsonAutoDetect(fieldVisibility = ANY, getterVisibility = NONE, isGetterVisibility = NONE, setterVisibility = NONE)
 public abstract class AbstractBaseEntity implements HasId {
     public static final int START_SEQ = 100000;
 

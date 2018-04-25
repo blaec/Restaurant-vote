@@ -38,9 +38,6 @@
         <!-- DataBase -->
         <hsqldb.version>2.4.0</hsqldb.version>
 
-        <!--Web-->
-        <javax-servlet.version>4.0.0</javax-servlet.version>
-
         <!--Tools-->
         <ehcache.version>3.4.0</ehcache.version>
     </properties>
@@ -188,6 +185,16 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+            <version>${jackson-json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-hibernate5</artifactId>
+            <version>${jackson-json.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
             <version>${jackson-json.version}</version>
         </dependency>
 
