@@ -17,12 +17,12 @@ public class MenuItem extends AbstractBaseEntity {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
     private LocalDateTime added;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dish_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Dish dish;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "restaurant_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Restaurant restaurant;

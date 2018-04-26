@@ -1,5 +1,6 @@
 package com.github.votes.service.implementations;
 
+import com.github.votes.AuthorizedUser;
 import com.github.votes.model.MenuItem;
 import com.github.votes.repository.MenuItemRepository;
 import com.github.votes.service.MenuItemService;
@@ -13,6 +14,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.github.votes.util.ValidationUtil.assureIdConsistent;
+import static com.github.votes.util.ValidationUtil.checkAdminRole;
 import static com.github.votes.util.ValidationUtil.checkNotFoundWithId;
 
 @Service
@@ -44,19 +47,22 @@ public class MenuItemServiceImpl implements MenuItemService {
     @CacheEvict(value = "menu_items", allEntries = true)
     @Override
     public MenuItem create(MenuItem menuItem) {
+        checkAdminRole(AuthorizedUser.getRole());
         return repository.save(menuItem);
     }
 
     @CacheEvict(value = "menu_items", allEntries = true)
     @Override
     public MenuItem update(MenuItem menuItem, int id) {
-        //ToDo check here that id is consistent
+        assureIdConsistent(menuItem, id);
+        checkAdminRole(AuthorizedUser.getRole());
         return repository.save(menuItem);
     }
 
     @CacheEvict(value = "menu_items", allEntries = true)
     @Override
     public void delete(int id) throws NotFoundException {
+        checkAdminRole(AuthorizedUser.getRole());
         checkNotFoundWithId(repository.delete(id), id);
     }
 
