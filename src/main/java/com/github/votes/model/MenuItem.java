@@ -9,7 +9,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "menu_items")
+@Table(name = "menu_items", uniqueConstraints = {@UniqueConstraint(columnNames = {"dish_id", "restaurant_id"}, name = "meal_item_unique_dish_and_restaurant_idx")})
 public class MenuItem extends AbstractBaseEntity {
 
     @Column(name = "added", nullable = false)

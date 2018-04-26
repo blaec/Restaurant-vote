@@ -36,6 +36,7 @@ CREATE TABLE menu_items
   FOREIGN KEY (dish_id) REFERENCES dishes (id) ON DELETE CASCADE,
   FOREIGN KEY (restaurant_id) REFERENCES restaurants (id) ON DELETE CASCADE
 );
+CREATE UNIQUE INDEX meal_item_unique_dish_and_restaurant_idx ON menu_items (dish_id, restaurant_id);
 
 CREATE TABLE votes
 (

@@ -33,7 +33,8 @@ public class VoteRestController {
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Vote take(Vote vote) {
+    public Vote take(@RequestBody Vote vote) {
+        // ToDo accepts Restaurant and in service adds active user
         int userId = AuthorizedUser.id();
         log.info("take a vote {} for user {}", vote, userId);
         return service.save(vote, userId);
