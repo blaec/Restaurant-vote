@@ -18,7 +18,7 @@ import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURAN
 import static com.github.votes.repository.mock_data.UserTestData.USER_1;
 import static com.github.votes.repository.mock_data.UserTestData.USER_ID_1;
 
-@ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/mock.xml"})
+@ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/mock.xml", "classpath:spring/spring-mvc.xml"})
 @RunWith(SpringRunner.class)
 public class InMemoryVoteRestControllerSpringTest {
 

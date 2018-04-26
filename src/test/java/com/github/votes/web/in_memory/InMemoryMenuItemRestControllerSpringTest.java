@@ -23,7 +23,7 @@ import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURAN
 import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_3;
 import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_ID_3;
 
-@ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/mock.xml"})
+@ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/mock.xml", "classpath:spring/spring-mvc.xml"})
 @RunWith(SpringRunner.class)
 public class InMemoryMenuItemRestControllerSpringTest {
 
