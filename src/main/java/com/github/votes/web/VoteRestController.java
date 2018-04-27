@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = VoteRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class VoteRestController {
@@ -19,11 +21,17 @@ public class VoteRestController {
     @Autowired
     private VoteService service;
 
-    @GetMapping
+    @GetMapping("/user")
     public Vote get() {
         int userId = AuthorizedUser.id();
         log.info("get vote for user {}", userId);
         return service.get(userId);
+    }
+
+    @GetMapping("/all")
+    public List<Vote> getAll(){
+        log.info("get list of all Votes");
+        return service.getAll();
     }
 
     @DeleteMapping

@@ -4,7 +4,7 @@
     <title>Restaurant Votes</title>
 </head>
 <body>
-<h2 style="color: blue">Simple logging page</h2>
+<h2>Simple logging page</h2>
 <form method="post" action="users">
     <b>Select the user:&nbsp;</b>
     <select name="userId">

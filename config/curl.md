@@ -59,3 +59,6 @@
 
 #### take Vote for selected Restaurant by Active User
 `curl -s -X PUT -d '{"id": 100018,"name": "restaurant_4"}' -H 'Content-Type: application/json' http://localhost:8080/votes/rest/votes`
+
+#### get all Votes for all Users
+`curl -s http://localhost:8080/votes/rest/votes/all`

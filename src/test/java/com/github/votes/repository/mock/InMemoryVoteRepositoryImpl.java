@@ -5,6 +5,7 @@ import com.github.votes.repository.VoteRepository;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -25,6 +26,11 @@ public class InMemoryVoteRepositoryImpl implements VoteRepository {
     @Override
     public Vote get(int userId) {
         return repository.get(userId);
+    }
+
+    @Override
+    public List<Vote> getAll() {
+        return null;
     }
 
     @Override

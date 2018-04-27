@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import static com.github.votes.model.Role.ROLE_ADMIN;
 import static com.github.votes.model.Role.ROLE_USER;
-import static com.github.votes.util.ValidationUtil.checkNotFoundWithId;
-import static com.github.votes.util.ValidationUtil.checkRole;
-import static com.github.votes.util.ValidationUtil.checkVoteTimeLimit;
+import static com.github.votes.util.ValidationUtil.*;
 
 @Service
 public class VoteServiceImpl implements VoteService {
@@ -25,6 +25,11 @@ public class VoteServiceImpl implements VoteService {
     @Autowired
     public VoteServiceImpl(VoteRepository repository) {
         this.repository = repository;
+    }
+
+    @Override
+    public List<Vote> getAll() {
+        return sortById(repository.getAll());
     }
 
     @Override
@@ -48,5 +53,11 @@ public class VoteServiceImpl implements VoteService {
         }
         Vote newVote = new Vote(null, restaurant, null, taken);
         return repository.save(newVote, userId);
+    }
+
+    private List<Vote> sortById(List<Vote> unsorted) {
+        return unsorted.stream()
+                .sorted(Comparator.comparing(Vote::getId))
+                .collect(Collectors.toList());
     }
 }

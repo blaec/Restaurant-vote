@@ -5,6 +5,8 @@ import com.github.votes.repository.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class DataJpaVoteRepository implements VoteRepository {
 
@@ -17,6 +19,11 @@ public class DataJpaVoteRepository implements VoteRepository {
     @Override
     public Vote get(int userId) {
         return crudRepository.getByUserId(userId);
+    }
+
+    @Override
+    public List<Vote> getAll() {
+        return crudRepository.findAll(SORT_ID);
     }
 
     @Override
