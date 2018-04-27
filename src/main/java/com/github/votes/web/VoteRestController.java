@@ -1,6 +1,7 @@
 package com.github.votes.web;
 
 import com.github.votes.AuthorizedUser;
+import com.github.votes.model.Restaurant;
 import com.github.votes.model.Vote;
 import com.github.votes.service.VoteService;
 import org.slf4j.Logger;
@@ -33,10 +34,9 @@ public class VoteRestController {
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Vote take(@RequestBody Vote vote) {
-        // ToDo accepts Restaurant and in service adds active user
+    public Vote take(@RequestBody Restaurant restaurant) {
         int userId = AuthorizedUser.id();
-        log.info("take a vote {} for user {}", vote, userId);
-        return service.save(vote, userId);
+        log.info("vote for restaurant {} and user {}", restaurant, userId);
+        return service.save(restaurant, userId);
     }
 }

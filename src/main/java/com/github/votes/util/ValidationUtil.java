@@ -4,9 +4,12 @@ import com.github.votes.model.MenuItem;
 import com.github.votes.model.Role;
 import com.github.votes.util.exception.NotFoundException;
 
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 public class ValidationUtil {
+    private static final LocalTime TIME_VOTE_LIMIT = LocalTime.of(19, 0);
 
     public static void checkNotFoundWithId(boolean found, int id) {
         checkNotFound(found, "id=" + id);
@@ -20,9 +23,15 @@ public class ValidationUtil {
         return checkNotFound(list, "id=" + id);
     }
 
-    public static void checkAdminRole(Role role) {
-        if (role != Role.ROLE_ADMIN) {
-            throw new NotFoundException(String.format("User with this role: %s is not allowed to manage MealItems.", role));
+    public static void checkRole(Role actual, Role expected) {
+        if (actual != expected) {
+            throw new NotFoundException(String.format("Only user with role %s is allowed to modify data.", actual));
+        }
+    }
+
+    public static void checkVoteTimeLimit(LocalDateTime taken) {
+        if (taken.toLocalTime().isAfter(TIME_VOTE_LIMIT)) {
+            throw new NotFoundException(String.format("You are allowed to vote until: %s", TIME_VOTE_LIMIT));
         }
     }
 

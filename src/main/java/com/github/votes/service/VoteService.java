@@ -1,5 +1,6 @@
 package com.github.votes.service;
 
+import com.github.votes.model.Restaurant;
 import com.github.votes.model.Vote;
 import com.github.votes.util.exception.NotFoundException;
 
@@ -9,5 +10,5 @@ public interface VoteService {
 
     void delete(int userId) throws NotFoundException;
 
-    Vote save(Vote vote, int userId);
+    Vote save(Restaurant restaurant, int userId);
 }

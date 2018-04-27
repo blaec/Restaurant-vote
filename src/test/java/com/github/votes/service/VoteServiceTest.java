@@ -11,6 +11,7 @@ import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static com.github.votes.model.AbstractBaseEntity.START_SEQ;
+import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_2;
 import static com.github.votes.repository.mock_data.UserTestData.USER_ID_1;
 import static com.github.votes.repository.mock_data.UserTestData.USER_ID_2;
 import static com.github.votes.repository.mock_data.VoteTestData.VOTE_01;
@@ -41,8 +42,9 @@ public class VoteServiceTest {
 
     @Test
     public void save() throws Exception {
-        service.save(VOTE_02, USER_ID_2);
-        assertThat(VOTE_02).isEqualTo(service.get(USER_ID_2));
+        service.save(RESTAURANT_2, USER_ID_2);
+        assertThat(VOTE_02.getRestaurant()).isEqualTo(service.get(USER_ID_2).getRestaurant());
+        assertThat(VOTE_02.getUser()).isEqualTo(service.get(USER_ID_2).getUser());
     }
 
     @Test

@@ -2,6 +2,7 @@ package com.github.votes.service.implementations;
 
 import com.github.votes.AuthorizedUser;
 import com.github.votes.model.MenuItem;
+import com.github.votes.model.Role;
 import com.github.votes.repository.MenuItemRepository;
 import com.github.votes.service.MenuItemService;
 import com.github.votes.util.exception.NotFoundException;
@@ -14,8 +15,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.github.votes.model.Role.ROLE_ADMIN;
 import static com.github.votes.util.ValidationUtil.assureIdConsistent;
-import static com.github.votes.util.ValidationUtil.checkAdminRole;
+import static com.github.votes.util.ValidationUtil.checkRole;
 import static com.github.votes.util.ValidationUtil.checkNotFoundWithId;
 
 @Service
@@ -47,7 +49,7 @@ public class MenuItemServiceImpl implements MenuItemService {
     @CacheEvict(value = "menu_items", allEntries = true)
     @Override
     public MenuItem create(MenuItem menuItem) {
-        checkAdminRole(AuthorizedUser.getRole());
+        checkRole(AuthorizedUser.getRole(), ROLE_ADMIN);
         return repository.save(menuItem);
     }
 
@@ -55,14 +57,14 @@ public class MenuItemServiceImpl implements MenuItemService {
     @Override
     public MenuItem update(MenuItem menuItem, int id) {
         assureIdConsistent(menuItem, id);
-        checkAdminRole(AuthorizedUser.getRole());
+        checkRole(AuthorizedUser.getRole(), ROLE_ADMIN);
         return repository.save(menuItem);
     }
 
     @CacheEvict(value = "menu_items", allEntries = true)
     @Override
     public void delete(int id) throws NotFoundException {
-        checkAdminRole(AuthorizedUser.getRole());
+        checkRole(AuthorizedUser.getRole(), ROLE_ADMIN);
         checkNotFoundWithId(repository.delete(id), id);
     }
 

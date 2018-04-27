@@ -47,16 +47,14 @@ public class InMemoryVoteRestControllerSpringTest {
     @Test
     public void updateVote() throws Exception{
         Assert.assertEquals(controller.get().getRestaurant(), RESTAURANT_3);
-        Vote vote = new Vote(USER_ID_1, RESTAURANT_2, USER_1, LocalDateTime.of(2000, 1, 1, 1, 1));
-        controller.take(vote);
+        controller.take(RESTAURANT_2);
         Assert.assertEquals(controller.get().getRestaurant(), RESTAURANT_2);
     }
 
     @Test
     public void takeVote() throws Exception{
         Assert.assertEquals(controller.get().getRestaurant(), RESTAURANT_3);
-        Vote vote = new Vote(null, RESTAURANT_2, USER_1, LocalDateTime.of(2000, 1, 1, 1, 1));
-        controller.take(vote);
+        controller.take(RESTAURANT_2);
         Assert.assertEquals(controller.get().getRestaurant(), RESTAURANT_2);
     }
 }
