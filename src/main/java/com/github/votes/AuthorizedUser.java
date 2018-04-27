@@ -6,13 +6,14 @@ import com.github.votes.model.Role;
 import static com.github.votes.model.Role.ROLE_ADMIN;
 
 /*
-    With the registration, this class will be filled with data of authorized user: id and role.
+    From simple logging page can be chosen user
 */
 public class AuthorizedUser {
 
-    private static int id = AbstractBaseEntity.START_SEQ + 2;
+    private static int id = AbstractBaseEntity.START_SEQ;
 
     private static Role role = ROLE_ADMIN;
+
 
     public static int id() {
         return id;

@@ -25,7 +25,7 @@ public class ValidationUtil {
 
     public static void checkRole(Role actual, Role expected) {
         if (actual != expected) {
-            throw new NotFoundException(String.format("Only user with role %s is allowed to modify data.", actual));
+            throw new NotFoundException(String.format("Only user with role %s is allowed to modify data.", expected));
         }
     }
 

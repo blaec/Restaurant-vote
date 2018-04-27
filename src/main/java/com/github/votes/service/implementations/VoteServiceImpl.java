@@ -1,5 +1,6 @@
 package com.github.votes.service.implementations;
 
+import com.github.votes.AuthorizedUser;
 import com.github.votes.model.Restaurant;
 import com.github.votes.model.Vote;
 import com.github.votes.repository.VoteRepository;
@@ -10,7 +11,10 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
+import static com.github.votes.model.Role.ROLE_ADMIN;
+import static com.github.votes.model.Role.ROLE_USER;
 import static com.github.votes.util.ValidationUtil.checkNotFoundWithId;
+import static com.github.votes.util.ValidationUtil.checkRole;
 import static com.github.votes.util.ValidationUtil.checkVoteTimeLimit;
 
 @Service
@@ -30,11 +34,13 @@ public class VoteServiceImpl implements VoteService {
 
     @Override
     public void delete(int userId) throws NotFoundException {
+        checkRole(AuthorizedUser.getRole(), ROLE_USER);
         checkNotFoundWithId(repository.delete(userId), userId);
     }
 
     @Override
     public Vote save(Restaurant restaurant, int userId) {
+        checkRole(AuthorizedUser.getRole(), ROLE_USER);
         LocalDateTime taken = LocalDateTime.now();
         checkVoteTimeLimit(taken);
         if (repository.get(userId) != null) {

@@ -2,6 +2,7 @@
 > For windows use `Git Bash`
 
 ## Testing DishRestController
+- for simplicity - list of dishes is given and unchangeable
 #### get All Dishes
 `curl -s http://localhost:8080/votes/rest/dishes`
 
@@ -9,6 +10,7 @@
 `curl -s http://localhost:8080/votes/rest/dishes/100005`
 
 ## Testing RestaurantRestController
+- for simplicity - list of restaurants is given and unchangeable
 #### get All Restaurants
 `curl -s http://localhost:8080/votes/rest/restaurants`
 
@@ -16,6 +18,7 @@
 `curl -s http://localhost:8080/votes/rest/restaurants/100017`
 
 ## Testing UserRestController
+- for simplicity - list of users is given and unchangeable
 #### get All Users
 `curl -s http://localhost:8080/votes/rest/users`
 
@@ -23,6 +26,7 @@
 `curl -s http://localhost:8080/votes/rest/users/100001`
 
 ## Testing MenuItemRestController
+- only user with ADMIN_ROLE can add/update/remove MenuItems
 #### get All Menu Items
 `curl -s http://localhost:8080/votes/rest/menu_items`
 
@@ -45,6 +49,8 @@
 `curl -s -X PUT -d '{"id":100021,"dish":{"id": 100013,"description": "dish_09","price": 1000},"restaurant":{"id": 100019,"name": "restaurant_5"},"added":"2018-04-25T23:00"}' -H 'Content-Type: application/json' http://localhost:8080/votes/rest/menu_items/100021`
 
 ## Testing VoteRestController
+- only user with USER_ROLE can take/delete Votes
+- voting is allowed before 11:00
 #### get Vote for Active User
 `curl -s http://localhost:8080/votes/rest/votes`
 
