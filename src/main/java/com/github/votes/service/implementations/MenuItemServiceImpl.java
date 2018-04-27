@@ -2,7 +2,6 @@ package com.github.votes.service.implementations;
 
 import com.github.votes.AuthorizedUser;
 import com.github.votes.model.MenuItem;
-import com.github.votes.model.Role;
 import com.github.votes.repository.MenuItemRepository;
 import com.github.votes.service.MenuItemService;
 import com.github.votes.util.exception.NotFoundException;
@@ -16,9 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static com.github.votes.model.Role.ROLE_ADMIN;
-import static com.github.votes.util.ValidationUtil.assureIdConsistent;
-import static com.github.votes.util.ValidationUtil.checkRole;
-import static com.github.votes.util.ValidationUtil.checkNotFoundWithId;
+import static com.github.votes.util.ValidationUtil.*;
 
 @Service
 public class MenuItemServiceImpl implements MenuItemService {

@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = UserRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class UserRestController {
-    static final String REST_URL = "/rest/profile/users";
+    static final String REST_URL = "/rest/users";
     private final Logger log = LoggerFactory.getLogger(UserRestController.class);
 
     @Autowired

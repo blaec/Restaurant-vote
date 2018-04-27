@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = VoteRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class VoteRestController {
-    static final String REST_URL = "/rest/profile/votes";
+    static final String REST_URL = "/rest/votes";
     private final Logger log = LoggerFactory.getLogger(VoteRestController.class);
 
     @Autowired

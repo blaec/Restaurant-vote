@@ -1,9 +1,7 @@
 package com.github.votes.service.implementations;
 
 import com.github.votes.model.Restaurant;
-import com.github.votes.model.User;
 import com.github.votes.model.Vote;
-import com.github.votes.repository.UserRepository;
 import com.github.votes.repository.VoteRepository;
 import com.github.votes.service.VoteService;
 import com.github.votes.util.exception.NotFoundException;

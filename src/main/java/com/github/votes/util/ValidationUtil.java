@@ -9,7 +9,7 @@ import java.time.LocalTime;
 import java.util.List;
 
 public class ValidationUtil {
-    private static final LocalTime TIME_VOTE_LIMIT = LocalTime.of(19, 0);
+    private static final LocalTime TIME_VOTE_LIMIT = LocalTime.of(11, 0);
 
     public static void checkNotFoundWithId(boolean found, int id) {
         checkNotFound(found, "id=" + id);

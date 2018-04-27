@@ -11,12 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.LocalDateTime;
-
 import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_2;
 import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_3;
-import static com.github.votes.repository.mock_data.UserTestData.USER_1;
-import static com.github.votes.repository.mock_data.UserTestData.USER_ID_1;
 
 @ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/mock.xml", "classpath:spring/spring-mvc.xml"})
 @RunWith(SpringRunner.class)

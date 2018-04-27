@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 @Transactional(readOnly = true)
-public class jpaDishRepository implements DishRepository {
+public class JpaDishRepository implements DishRepository {
 
     @PersistenceContext
     private EntityManager em;

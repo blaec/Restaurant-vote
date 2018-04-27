@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = MenuItemRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class MenuItemRestController {
-    static final String REST_URL = "/rest/profile/menu_items";
+    static final String REST_URL = "/rest/menu_items";
     private final Logger log = LoggerFactory.getLogger(MenuItemRestController.class);
 
     @Autowired

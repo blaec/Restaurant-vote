@@ -16,7 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping(value = DishRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class DishRestController {
-    static final String REST_URL = "/rest/profile/dishes";
+    static final String REST_URL = "/rest/dishes";
     private final Logger log = LoggerFactory.getLogger(DishRestController.class);
 
     @Autowired
