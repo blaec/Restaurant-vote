@@ -12,16 +12,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
 import static com.github.votes.repository.mock_data.DishTestData.DISH_02;
 import static com.github.votes.repository.mock_data.DishTestData.DISH_03;
 import static com.github.votes.repository.mock_data.MenuItemTestData.*;
-import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_1;
-import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_3;
-import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_ID_3;
+import static com.github.votes.repository.mock_data.RestaurantTestData.*;
 
 @ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/mock.xml", "classpath:spring/spring-mvc.xml"})
 @RunWith(SpringRunner.class)
@@ -58,14 +56,14 @@ public class InMemoryMenuItemRestControllerSpringTest {
 
     @Test
     public void create() throws Exception {
-        MenuItem menuItemCreated = new MenuItem(null, DISH_02, RESTAURANT_1, LocalDateTime.of(2001, 1, 1, 12, 12));
+        MenuItem menuItemCreated = new MenuItem(null, DISH_02, RESTAURANT_1, LocalDate.of(2001, 1, 1));
         MenuItem menuItem = controller.create(menuItemCreated);
         Assert.assertEquals(menuItem.getRestaurant(), menuItemCreated.getRestaurant());
     }
 
     @Test
     public void update() throws Exception {
-        MenuItem menuItemUpdated = new MenuItem(MENU_ITEM_ID_02, DISH_03, RESTAURANT_3, LocalDateTime.of(2001, 1, 1, 12, 12));
+        MenuItem menuItemUpdated = new MenuItem(MENU_ITEM_ID_02, DISH_03, RESTAURANT_3, LocalDate.of(2001, 1, 1));
         MenuItem menuItem = controller.update(menuItemUpdated, MENU_ITEM_ID_02);
         Assert.assertEquals(menuItem.getRestaurant(), RESTAURANT_3);
         Assert.assertEquals(menuItem.getDish(), DISH_03);

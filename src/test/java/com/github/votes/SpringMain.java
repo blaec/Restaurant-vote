@@ -1,10 +1,13 @@
 package com.github.votes;
 
-import com.github.votes.model.*;
+import com.github.votes.model.Dish;
+import com.github.votes.model.MenuItem;
+import com.github.votes.model.Restaurant;
+import com.github.votes.model.User;
 import com.github.votes.web.*;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Arrays;
 
 import static com.github.votes.repository.mock_data.DishTestData.*;
@@ -55,10 +58,10 @@ public class SpringMain {
             // Test MenuItem rest controller
             MenuItemRestController menuItemRestController = appCtx.getBean(MenuItemRestController.class);
             // add data
-            MenuItem menuItem_1 = new MenuItem(null, dish_1, restaurant_1, LocalDateTime.now());
-            MenuItem menuItem_2 = new MenuItem(null, dish_2, restaurant_1, LocalDateTime.now());
-            MenuItem menuItem_3 = new MenuItem(null, dish_1, restaurant_3, LocalDateTime.now());
-            MenuItem menuItem_4 = new MenuItem(null, dish_4, restaurant_3, LocalDateTime.now());
+            MenuItem menuItem_1 = new MenuItem(null, dish_1, restaurant_1, LocalDate.now());
+            MenuItem menuItem_2 = new MenuItem(null, dish_2, restaurant_1, LocalDate.now());
+            MenuItem menuItem_3 = new MenuItem(null, dish_1, restaurant_3, LocalDate.now());
+            MenuItem menuItem_4 = new MenuItem(null, dish_4, restaurant_3, LocalDate.now());
             // test added data
             menuItemRestController.create(menuItem_1);
             menuItemRestController.create(menuItem_2);
@@ -68,7 +71,7 @@ public class SpringMain {
             System.out.println(menuItemRestController.getAll());
             System.out.println(menuItemRestController.getByRestaurant(RESTAURANT_ID_3));
             // test update
-            MenuItem menuItem_2_updated = new MenuItem(2, dish_2, restaurant_3, LocalDateTime.now());
+            MenuItem menuItem_2_updated = new MenuItem(2, dish_2, restaurant_3, LocalDate.now());
             menuItemRestController.update(menuItem_2_updated, 2);
             System.out.println(menuItemRestController.getAll());
             // test delete

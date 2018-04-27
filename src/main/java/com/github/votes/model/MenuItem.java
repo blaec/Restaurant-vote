@@ -6,16 +6,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "menu_items", uniqueConstraints = {@UniqueConstraint(columnNames = {"dish_id", "restaurant_id"}, name = "meal_item_unique_dish_and_restaurant_idx")})
+@Table(name = "menu_items", uniqueConstraints = {@UniqueConstraint(columnNames = {"dish_id", "restaurant_id", "added"}, name = "meal_item_unique_dish_restaurant_added_idx")})
 public class MenuItem extends AbstractBaseEntity {
 
     @Column(name = "added", nullable = false)
     @NotNull
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
-    private LocalDateTime added;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate added;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "dish_id", nullable = false)
@@ -29,11 +29,11 @@ public class MenuItem extends AbstractBaseEntity {
 
     public MenuItem() {}
 
-    public MenuItem(Dish dish, Restaurant restaurant, LocalDateTime added) {
+    public MenuItem(Dish dish, Restaurant restaurant, LocalDate added) {
         this(null, dish, restaurant, added);
     }
 
-    public MenuItem(Integer id, Dish dish, Restaurant restaurant, LocalDateTime added) {
+    public MenuItem(Integer id, Dish dish, Restaurant restaurant, LocalDate added) {
         super(id);
         this.dish = dish;
         this.restaurant = restaurant;
@@ -56,11 +56,11 @@ public class MenuItem extends AbstractBaseEntity {
         this.restaurant = restaurant;
     }
 
-    public LocalDateTime getAdded() {
+    public LocalDate getAdded() {
         return added;
     }
 
-    public void setAdded(LocalDateTime added) {
+    public void setAdded(LocalDate added) {
         this.added = added;
     }
 

@@ -12,7 +12,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
 
@@ -67,7 +67,7 @@ public class MenuItemServiceTest {
 
     @Test
     public void save() throws Exception {
-        MenuItem created = new MenuItem(null, DISH_03, RESTAURANT_2, LocalDateTime.now());
+        MenuItem created = new MenuItem(null, DISH_03, RESTAURANT_2, LocalDate.now());
         service.create(created);
         assertThat(service.getAll()).isEqualTo(Arrays.asList(MENU_ITEM_01, MENU_ITEM_02, MENU_ITEM_03, MENU_ITEM_04, created));
     }
