@@ -32,7 +32,7 @@ public class InMemoryMenuItemRestControllerSpringTest {
     private InMemoryMenuItemRepositoryImpl repository;
 
     @Before
-    public void setUp() throws Exception{
+    public void setUp() throws Exception {
         repository.init();
     }
 
@@ -51,7 +51,7 @@ public class InMemoryMenuItemRestControllerSpringTest {
     @Test
     public void getByRestaurant() throws Exception {
         List<MenuItem> menuItems = controller.getByRestaurant(RESTAURANT_ID_3);
-        Assert.assertEquals(menuItems, Arrays.asList(MENU_ITEM_03, MENU_ITEM_04));
+        Assert.assertEquals(menuItems, Arrays.asList(MENU_ITEM_03, MENU_ITEM_04, MENU_ITEM_07, MENU_ITEM_08));
     }
 
     @Test
@@ -72,11 +72,11 @@ public class InMemoryMenuItemRestControllerSpringTest {
     @Test
     public void delete() throws Exception {
         controller.delete(MENU_ITEM_ID_04);
-        Assert.assertEquals(controller.getAll().size(), 3);
+        Assert.assertEquals(controller.getAll().size(), 7);
     }
 
     @Test(expected = NotFoundException.class)
     public void deleteNotFound() throws Exception {
-        controller.delete(MENU_ITEM_ID_04 + 1);
+        controller.delete(MENU_ITEM_ID_08 + 1);
     }
 }

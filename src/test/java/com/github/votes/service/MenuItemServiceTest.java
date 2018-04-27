@@ -69,13 +69,13 @@ public class MenuItemServiceTest {
     public void save() throws Exception {
         MenuItem created = new MenuItem(null, DISH_03, RESTAURANT_2, LocalDate.now());
         service.create(created);
-        assertThat(service.getAll()).isEqualTo(Arrays.asList(MENU_ITEM_01, MENU_ITEM_02, MENU_ITEM_03, MENU_ITEM_04, created));
+        assertThat(service.getAll()).isEqualTo(Arrays.asList(MENU_ITEM_01, MENU_ITEM_02, MENU_ITEM_03, MENU_ITEM_04, MENU_ITEM_05, MENU_ITEM_06, MENU_ITEM_07, MENU_ITEM_08, created));
     }
 
     @Test
     public void delete() throws Exception {
         service.delete(MENU_ITEM_ID_03);
-        assertThat(service.getAll()).isEqualTo(Arrays.asList(MENU_ITEM_01, MENU_ITEM_02, MENU_ITEM_04));
+        assertThat(service.getAll()).isEqualTo(Arrays.asList(MENU_ITEM_01, MENU_ITEM_02, MENU_ITEM_04, MENU_ITEM_05, MENU_ITEM_06, MENU_ITEM_07, MENU_ITEM_08));
     }
 
     @Test(expected = NotFoundException.class)

@@ -1,8 +1,11 @@
 package com.github.votes.web.in_memory;
 
+import com.github.votes.AuthorizedUser;
 import com.github.votes.model.Vote;
 import com.github.votes.repository.mock.InMemoryVoteRepositoryImpl;
+import com.github.votes.util.ValidationUtil;
 import com.github.votes.web.VoteRestController;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,6 +13,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.time.LocalTime;
 
 import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_2;
 import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_3;
@@ -27,6 +32,14 @@ public class InMemoryVoteRestControllerSpringTest {
     @Before
     public void setUp() throws Exception{
         repository.init();
+        AuthorizedUser.setUser();
+        ValidationUtil.setTimeVoteLimit(LocalTime.of(23, 59));
+    }
+
+    @After
+    public void reset() throws Exception{
+        AuthorizedUser.setAdmin();
+        ValidationUtil.setTimeVoteLimit(LocalTime.of(11, 0));
     }
 
     @Test

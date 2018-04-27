@@ -25,6 +25,10 @@ public class InMemoryMenuItemRepositoryImpl implements MenuItemRepository {
         repository.put(MENU_ITEM_ID_02, MENU_ITEM_02);
         repository.put(MENU_ITEM_ID_03, MENU_ITEM_03);
         repository.put(MENU_ITEM_ID_04, MENU_ITEM_04);
+        repository.put(MENU_ITEM_ID_05, MENU_ITEM_05);
+        repository.put(MENU_ITEM_ID_06, MENU_ITEM_06);
+        repository.put(MENU_ITEM_ID_07, MENU_ITEM_07);
+        repository.put(MENU_ITEM_ID_08, MENU_ITEM_08);
     }
 
     @Override

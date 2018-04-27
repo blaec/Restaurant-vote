@@ -9,7 +9,12 @@ import java.time.LocalTime;
 import java.util.List;
 
 public class ValidationUtil {
-    private static final LocalTime TIME_VOTE_LIMIT = LocalTime.of(11, 0);
+    private static LocalTime timeVoteLimit = LocalTime.of(11, 0);
+
+    // for testing purposes only
+    public static void setTimeVoteLimit(LocalTime timeVoteLimit) {
+        ValidationUtil.timeVoteLimit = timeVoteLimit;
+    }
 
     public static void checkNotFoundWithId(boolean found, int id) {
         checkNotFound(found, "id=" + id);
@@ -30,8 +35,8 @@ public class ValidationUtil {
     }
 
     public static void checkVoteTimeLimit(LocalDateTime taken) {
-        if (taken.toLocalTime().isAfter(TIME_VOTE_LIMIT)) {
-            throw new NotFoundException(String.format("You are allowed to vote until: %s", TIME_VOTE_LIMIT));
+        if (taken.toLocalTime().isAfter(timeVoteLimit)) {
+            throw new NotFoundException(String.format("You are allowed to vote until: %s", timeVoteLimit));
         }
     }
 

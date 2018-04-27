@@ -4,6 +4,7 @@ import com.github.votes.model.AbstractBaseEntity;
 import com.github.votes.model.Role;
 
 import static com.github.votes.model.Role.ROLE_ADMIN;
+import static com.github.votes.model.Role.ROLE_USER;
 
 /*
     From simple logging page can be chosen user
@@ -29,5 +30,15 @@ public class AuthorizedUser {
 
     public static void setRole(Role role) {
         AuthorizedUser.role = role;
+    }
+
+    public static void setAdmin() {
+        role = ROLE_ADMIN;
+        id = AbstractBaseEntity.START_SEQ;
+    }
+
+    public static void setUser() {
+        role = ROLE_USER;
+        id = AbstractBaseEntity.START_SEQ + 2;
     }
 }

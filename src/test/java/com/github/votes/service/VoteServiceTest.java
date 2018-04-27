@@ -1,7 +1,11 @@
 package com.github.votes.service;
 
+import com.github.votes.AuthorizedUser;
 import com.github.votes.model.Vote;
+import com.github.votes.util.ValidationUtil;
 import com.github.votes.util.exception.NotFoundException;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +13,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.time.LocalTime;
 
 import static com.github.votes.model.AbstractBaseEntity.START_SEQ;
 import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_2;
@@ -29,8 +35,21 @@ public class VoteServiceTest {
     @Autowired
     private VoteService service;
 
+    @Before
+    public void setUp() {
+        AuthorizedUser.setUser();
+        ValidationUtil.setTimeVoteLimit(LocalTime.of(23, 59));
+    }
+
+    @After
+    public void reset() {
+        AuthorizedUser.setAdmin();
+        ValidationUtil.setTimeVoteLimit(LocalTime.of(11, 0));
+    }
+
     @Test
     public void get() throws Exception {
+        // ToDo repository contains history data for the same user
         Vote vote = service.get(USER_ID_1);
         assertThat(VOTE_01).isEqualTo(vote);
     }
@@ -49,7 +68,9 @@ public class VoteServiceTest {
 
     @Test
     public void delete() throws Exception {
+//        AuthorizedUser.setUser();
         service.delete(USER_ID_1);
+//        AuthorizedUser.setAdmin();
         // TODO required getAll to check delete status, statement below works only with manual debug
 //        assertThat(((DataJpaVoteRepository) ((VoteServiceImpl) service).repository).crudRepository.findAll().size() == 0);
     }
