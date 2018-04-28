@@ -7,9 +7,9 @@ import javax.validation.constraints.NotBlank;
 @Table(name = "users")
 public class User extends AbstractNamedEntity {
 
-    @Enumerated(EnumType.STRING)
-    @NotBlank
     @Column(name = "role", nullable = false)
+    @NotBlank
+    @Enumerated(EnumType.STRING)
     private Role role;
 
     protected User() {}
@@ -21,10 +21,6 @@ public class User extends AbstractNamedEntity {
 
     public Role getRole() {
         return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
     }
 
     @Override

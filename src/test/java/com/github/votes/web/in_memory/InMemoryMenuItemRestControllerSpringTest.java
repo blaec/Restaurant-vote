@@ -42,12 +42,14 @@ public class InMemoryMenuItemRestControllerSpringTest {
         Assert.assertEquals(menuItem, MENU_ITEM_01);
     }
 
+/*
     @Test
     public void getAll() throws Exception {
         List<MenuItem> menuItems = controller.getAll();
         Assert.assertEquals(menuItems, MENU_ITEMS);
     }
 
+*/
     @Test
     public void getByRestaurant() throws Exception {
         List<MenuItem> menuItems = controller.getByRestaurant(RESTAURANT_ID_3);

@@ -60,10 +60,6 @@ public class MenuItem extends AbstractBaseEntity {
         return added;
     }
 
-    public void setAdded(LocalDate added) {
-        this.added = added;
-    }
-
     @Override
     public String toString() {
         return "MenuItem{" +
