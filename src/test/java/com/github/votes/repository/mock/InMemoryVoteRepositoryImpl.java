@@ -4,6 +4,7 @@ import com.github.votes.model.Vote;
 import com.github.votes.repository.VoteRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
@@ -24,7 +25,7 @@ public class InMemoryVoteRepositoryImpl implements VoteRepository {
     }
 
     @Override
-    public Vote get(int userId) {
+    public Vote get(int userId, LocalDate date) {
         return repository.get(userId);
     }
 
@@ -44,7 +45,7 @@ public class InMemoryVoteRepositoryImpl implements VoteRepository {
     }
 
     @Override
-    public boolean delete(int userId) {
+    public boolean delete(int userId, LocalDate date) {
         return repository.remove(userId) != null;
     }
 }

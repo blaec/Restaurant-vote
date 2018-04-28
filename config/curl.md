@@ -3,47 +3,47 @@
 
 ## Testing DishRestController
 - for simplicity - list of dishes is given and unchangeable
-#### get All Dishes
-`curl -s http://localhost:8080/votes/rest/dishes`
-
 #### get Dish with id=100005
 `curl -s http://localhost:8080/votes/rest/dishes/100005`
 
+#### get All Dishes
+`curl -s http://localhost:8080/votes/rest/dishes`
+
 ## Testing RestaurantRestController
 - for simplicity - list of restaurants is given and unchangeable
-#### get All Restaurants
-`curl -s http://localhost:8080/votes/rest/restaurants`
-
 #### get Restaurant with id=100017
 `curl -s http://localhost:8080/votes/rest/restaurants/100017`
 
+#### get All Restaurants
+`curl -s http://localhost:8080/votes/rest/restaurants`
+
 ## Testing UserRestController
 - for simplicity - list of users is given and unchangeable
-#### get All Users
-`curl -s http://localhost:8080/votes/rest/users`
-
 #### get User with id=100001
 `curl -s http://localhost:8080/votes/rest/users/100001`
 
+#### get All Users
+`curl -s http://localhost:8080/votes/rest/users`
+
 ## Testing MenuItemRestController
 - only user with ADMIN_ROLE can add/update/remove MenuItems
-#### get All Menu Items
-`curl -s http://localhost:8080/votes/rest/menu_items`
-
-#### get Menu Item by Date (by default - today)
-`curl -s http://localhost:8080/votes/rest/menu_items/filter?date=2001-01-02`
-
 #### get Menu Item with id=100021
 `curl -s http://localhost:8080/votes/rest/menu_items/100021`
 
-#### get Menu Items with restaurant id=100017
-`curl -s http://localhost:8080/votes/rest/menu_items/restaurant/100017`
-
-#### get Menu Items with restaurant id=100017 filtered by date (by default - today)
-`curl -s http://localhost:8080/votes/rest/menu_items/restaurant/filter?id=100017&date=2001-01-02`
-
 #### get Menu Item not found
 `curl -s -v http://localhost:8080/votes/rest/menu_items/99999`
+
+#### get All Menu Items
+`curl -s http://localhost:8080/votes/rest/menu_items`
+
+#### get All Menu Items by Date (by default - today)
+`curl -s http://localhost:8080/votes/rest/menu_items/filter?date=2001-01-02`
+
+#### get All Menu Items with restaurant id=100017
+`curl -s http://localhost:8080/votes/rest/menu_items/restaurant/100017`
+
+#### get All Menu Items filtered by restaurant id=100017 and by date (by default - today)
+`curl -s http://localhost:8080/votes/rest/menu_items/restaurant/filter?id=100017&date=2001-01-02`
 
 #### delete Menu Item with id=100021
 `curl -s -X DELETE http://localhost:8080/votes/rest/menu_items/100021`
@@ -57,11 +57,11 @@
 ## Testing VoteRestController
 - only user with USER_ROLE can take/delete Votes
 - voting is allowed before 11:00
-#### get Vote for Active User
-`curl -s http://localhost:8080/votes/rest/votes`
+#### get Vote for Active User for specified date (by default - today)
+`curl -s http://localhost:8080/votes/rest/votes?date=2000-01-02`
 
-#### delete Vote for Active User
-`curl -s -X DELETE http://localhost:8080/votes/rest/votes`
+#### delete Vote for Active User for specified date (by default - today)
+`curl -s -X DELETE http://localhost:8080/votes/rest/votes?date=2000-01-02`
 
 #### take Vote for selected Restaurant by Active User
 `curl -s -X PUT -d '{"id": 100018,"name": "restaurant_4"}' -H 'Content-Type: application/json' http://localhost:8080/votes/rest/votes`

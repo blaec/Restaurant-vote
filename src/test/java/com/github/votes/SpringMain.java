@@ -82,8 +82,8 @@ public class SpringMain {
             // Test Vote rest controller
             VoteRestController voteRestController = appCtx.getBean(VoteRestController.class);
             System.out.println(voteRestController.take(restaurant_3));
-            System.out.println(voteRestController.get());
-            voteRestController.delete();
+            System.out.println(voteRestController.get(LocalDate.of(2000,1,1)));
+            voteRestController.delete(LocalDate.of(2000,1,1));
 //            System.out.println(voteRestController.get(1));
             System.out.println(UNDER_LINE);
         }

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 import java.util.List;
 
+import static com.github.votes.util.DateUtil.getDefault;
+
 @RestController
 @RequestMapping(value = MenuItemRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class MenuItemRestController {
@@ -37,7 +39,7 @@ public class MenuItemRestController {
     public List<MenuItem> getAllByDate(@RequestParam(value = "date", required = false)
                                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         log.info("get list of all MenuItems for specified date {} (today by default)", date);
-        return service.getAllByDate(date != null ? date : LocalDate.now());
+        return service.getAllByDate(getDefault(date));
     }
 
     @GetMapping(value = "/restaurant/{id}")
@@ -51,7 +53,7 @@ public class MenuItemRestController {
                                                  @RequestParam(value = "date", required = false)
                                                  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         log.info("get list of all MenuItem by restaurant id {} for specified date {} (today by default)", restaurantId, date);
-        return service.getByRestaurantAndDate(restaurantId, date != null ? date : LocalDate.now());
+        return service.getByRestaurantAndDate(restaurantId, getDefault(date));
     }
 
     @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

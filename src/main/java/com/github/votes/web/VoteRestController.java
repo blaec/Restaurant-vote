@@ -7,10 +7,14 @@ import com.github.votes.service.VoteService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
+
+import static com.github.votes.util.DateUtil.getDefault;
 
 @RestController
 @RequestMapping(value = VoteRestController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -21,11 +25,12 @@ public class VoteRestController {
     @Autowired
     private VoteService service;
 
-    @GetMapping("/user")
-    public Vote get() {
+    @GetMapping()
+    public Vote get(@RequestParam(value = "date", required = false)
+                    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         int userId = AuthorizedUser.id();
-        log.info("get vote for user {}", userId);
-        return service.get(userId);
+        log.info("get vote for user {} for specified date {} (today by default)", userId, date);
+        return service.get(userId, getDefault(date));
     }
 
     @GetMapping("/all")
@@ -35,10 +40,11 @@ public class VoteRestController {
     }
 
     @DeleteMapping
-    public void delete() {
+    public void delete(@RequestParam(value = "date", required = false)
+                       @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         int userId = AuthorizedUser.id();
-        log.info("delete vote for user {}", userId);
-        service.delete(userId);
+        log.info("delete vote for user {} for specified date {} (today by default)", userId, date);
+        service.delete(userId, getDefault(date));
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)

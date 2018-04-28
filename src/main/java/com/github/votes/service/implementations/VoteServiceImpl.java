@@ -9,6 +9,7 @@ import com.github.votes.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
@@ -33,14 +34,14 @@ public class VoteServiceImpl implements VoteService {
     }
 
     @Override
-    public Vote get(int userId) throws NotFoundException {
-        return checkNotFoundWithId(repository.get(userId), userId);
+    public Vote get(int userId, LocalDate date) throws NotFoundException {
+        return checkNotFoundWithId(repository.get(userId, date), userId);
     }
 
     @Override
-    public void delete(int userId) throws NotFoundException {
+    public void delete(int userId, LocalDate date) throws NotFoundException {
         checkRole(AuthorizedUser.getRole(), ROLE_USER);
-        checkNotFoundWithId(repository.delete(userId), userId);
+        checkNotFoundWithId(repository.delete(userId, date), userId);
     }
 
     @Override
@@ -48,8 +49,8 @@ public class VoteServiceImpl implements VoteService {
         checkRole(AuthorizedUser.getRole(), ROLE_USER);
         LocalDateTime taken = LocalDateTime.now();
         checkVoteTimeLimit(taken);
-        if (repository.get(userId) != null) {
-            delete(userId);
+        if (repository.get(userId, taken.toLocalDate()) != null) {
+            delete(userId, taken.toLocalDate());
         }
         Vote newVote = new Vote(null, restaurant, null, taken);
         return repository.save(newVote, userId);

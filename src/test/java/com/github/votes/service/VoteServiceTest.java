@@ -14,6 +14,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import static com.github.votes.model.AbstractBaseEntity.START_SEQ;
@@ -31,6 +32,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 @RunWith(SpringRunner.class)
 @Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
 public class VoteServiceTest {
+
+    private LocalDate date = LocalDate.of(2000,1,1);
 
     @Autowired
     private VoteService service;
@@ -50,26 +53,26 @@ public class VoteServiceTest {
     @Test
     public void get() throws Exception {
         // ToDo repository contains history data for the same user
-        Vote vote = service.get(USER_ID_1);
+        Vote vote = service.get(USER_ID_1, date);
         assertThat(VOTE_01).isEqualTo(vote);
     }
 
     @Test(expected = NotFoundException.class)
     public void getNotFound() throws Exception {
-        service.get(START_SEQ - 1);
+        service.get(START_SEQ - 1, date);
     }
 
     @Test
     public void save() throws Exception {
         service.save(RESTAURANT_2, USER_ID_2);
-        assertThat(VOTE_02.getRestaurant()).isEqualTo(service.get(USER_ID_2).getRestaurant());
-        assertThat(VOTE_02.getUser()).isEqualTo(service.get(USER_ID_2).getUser());
+        assertThat(VOTE_02.getRestaurant()).isEqualTo(service.get(USER_ID_2, date).getRestaurant());
+        assertThat(VOTE_02.getUser()).isEqualTo(service.get(USER_ID_2, date).getUser());
     }
 
     @Test
     public void delete() throws Exception {
 //        AuthorizedUser.setUser();
-        service.delete(USER_ID_1);
+        service.delete(USER_ID_1, date);
 //        AuthorizedUser.setAdmin();
         // TODO required getAll to check delete status, statement below works only with manual debug
 //        assertThat(((DataJpaVoteRepository) ((VoteServiceImpl) service).repository).crudRepository.findAll().size() == 0);
@@ -77,6 +80,6 @@ public class VoteServiceTest {
 
     @Test(expected = NotFoundException.class)
     public void deleteNotFound() throws Exception {
-        service.delete(START_SEQ - 1);
+        service.delete(START_SEQ - 1, date);
     }
 }

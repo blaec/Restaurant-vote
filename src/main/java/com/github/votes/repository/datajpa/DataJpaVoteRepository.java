@@ -5,7 +5,12 @@ import com.github.votes.repository.VoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
+
+import static com.github.votes.repository.DataRepository.SORT_ID;
 
 @Repository
 public class DataJpaVoteRepository implements VoteRepository {
@@ -17,8 +22,9 @@ public class DataJpaVoteRepository implements VoteRepository {
     private CrudUserRepository crudUserRepository;
 
     @Override
-    public Vote get(int userId) {
-        return crudRepository.getByUserId(userId);
+    public Vote get(int userId, LocalDate date) {
+        LocalDateTime startDateTime = date.atStartOfDay();
+        return crudRepository.getByUserId(userId, startDateTime, startDateTime.with(LocalTime.MAX));
     }
 
     @Override
@@ -28,7 +34,7 @@ public class DataJpaVoteRepository implements VoteRepository {
 
     @Override
     public Vote save(Vote vote, int userId) {
-        if (!vote.isNew() && get(vote.getId()) == null) {
+        if (!vote.isNew() && get(vote.getId(), vote.getTaken().toLocalDate()) == null) {
             return null;
         }
         vote.setUser(crudUserRepository.getOne(userId));
@@ -36,7 +42,8 @@ public class DataJpaVoteRepository implements VoteRepository {
     }
 
     @Override
-    public boolean delete(int userId) {
-        return crudRepository.delete(userId) != 0;
+    public boolean delete(int userId, LocalDate date) {
+        LocalDateTime startDateTime = date.atStartOfDay();
+        return crudRepository.delete(userId, startDateTime, startDateTime.with(LocalTime.MAX)) != 0;
     }
 }

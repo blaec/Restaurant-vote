@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.time.LocalTime;
 
 import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURANT_2;
@@ -22,6 +23,8 @@ import static com.github.votes.repository.mock_data.RestaurantTestData.RESTAURAN
 @ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/mock.xml", "classpath:spring/spring-mvc.xml"})
 @RunWith(SpringRunner.class)
 public class InMemoryVoteRestControllerSpringTest {
+
+    private LocalDate date = LocalDate.of(2000,1,1);
 
     @Autowired
     private VoteRestController controller;
@@ -44,26 +47,26 @@ public class InMemoryVoteRestControllerSpringTest {
 
     @Test
     public void get() throws Exception{
-        Vote vote = controller.get();
+        Vote vote = controller.get(date);
         Assert.assertEquals(vote.getRestaurant(), RESTAURANT_3);
     }
 
     @Test
     public void delete() throws Exception{
-        controller.delete();
+        controller.delete(date);
     }
 
     @Test
     public void updateVote() throws Exception{
-        Assert.assertEquals(controller.get().getRestaurant(), RESTAURANT_3);
+        Assert.assertEquals(controller.get(date).getRestaurant(), RESTAURANT_3);
         controller.take(RESTAURANT_2);
-        Assert.assertEquals(controller.get().getRestaurant(), RESTAURANT_2);
+        Assert.assertEquals(controller.get(date).getRestaurant(), RESTAURANT_2);
     }
 
     @Test
     public void takeVote() throws Exception{
-        Assert.assertEquals(controller.get().getRestaurant(), RESTAURANT_3);
+        Assert.assertEquals(controller.get(date).getRestaurant(), RESTAURANT_3);
         controller.take(RESTAURANT_2);
-        Assert.assertEquals(controller.get().getRestaurant(), RESTAURANT_2);
+        Assert.assertEquals(controller.get(date).getRestaurant(), RESTAURANT_2);
     }
 }
