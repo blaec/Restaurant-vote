@@ -33,7 +33,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
 public class VoteServiceTest {
 
-    private LocalDate date = LocalDate.of(2000,1,1);
+    private LocalDate date = LocalDate.of(2001,1,1);
 
     @Autowired
     private VoteService service;

@@ -39,7 +39,7 @@ public class VoteRestController {
         return service.getAll();
     }
 
-    @DeleteMapping
+    @DeleteMapping()
     public void delete(@RequestParam(value = "date", required = false)
                        @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
         int userId = AuthorizedUser.id();

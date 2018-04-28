@@ -58,10 +58,10 @@
 - only user with USER_ROLE can take/delete Votes
 - voting is allowed before 11:00
 #### get Vote for Active User for specified date (by default - today)
-`curl -s http://localhost:8080/votes/rest/votes?date=2000-01-02`
+`curl -s http://localhost:8080/votes/rest/votes?date=2001-01-02`
 
 #### delete Vote for Active User for specified date (by default - today)
-`curl -s -X DELETE http://localhost:8080/votes/rest/votes?date=2000-01-02`
+`curl -s -X DELETE http://localhost:8080/votes/rest/votes?date=2001-01-02`
 
 #### take Vote for selected Restaurant by Active User
 `curl -s -X PUT -d '{"id": 100018,"name": "restaurant_4"}' -H 'Content-Type: application/json' http://localhost:8080/votes/rest/votes`
