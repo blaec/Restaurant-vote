@@ -10,6 +10,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -39,8 +40,22 @@ public class MenuItemServiceImpl implements MenuItemService {
     }
 
     @Override
+    public List<MenuItem> getAllByDate(LocalDate date) throws NotFoundException {
+        return checkNotFoundByDate(getAll().stream()
+                    .filter(menuItem -> menuItem.getAdded().equals(date))
+                    .collect(Collectors.toList()), date);
+    }
+
+    @Override
     public List<MenuItem> getByRestaurant(int restaurantId) throws NotFoundException {
         return checkNotFoundWithId(sortById(repository.getByRestaurant(restaurantId)), restaurantId);
+    }
+
+    @Override
+    public List<MenuItem> getByRestaurantAndDate(int restaurantId, LocalDate date) throws NotFoundException {
+        return checkNotFoundByDate(getByRestaurant(restaurantId).stream()
+                    .filter(menuItem -> menuItem.getAdded().equals(date))
+                    .collect(Collectors.toList()), date);
     }
 
     @CacheEvict(value = "menu_items", allEntries = true)

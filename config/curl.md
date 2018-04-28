@@ -30,11 +30,17 @@
 #### get All Menu Items
 `curl -s http://localhost:8080/votes/rest/menu_items`
 
+#### get Menu Item by Date (by default - today)
+`curl -s http://localhost:8080/votes/rest/menu_items/filter?date=2001-01-02`
+
 #### get Menu Item with id=100021
 `curl -s http://localhost:8080/votes/rest/menu_items/100021`
 
-#### get Menu Item with restaurant id=100017
+#### get Menu Items with restaurant id=100017
 `curl -s http://localhost:8080/votes/rest/menu_items/restaurant/100017`
+
+#### get Menu Items with restaurant id=100017 filtered by date (by default - today)
+`curl -s http://localhost:8080/votes/rest/menu_items/restaurant/filter?id=100017&date=2001-01-02`
 
 #### get Menu Item not found
 `curl -s -v http://localhost:8080/votes/rest/menu_items/99999`

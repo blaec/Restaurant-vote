@@ -4,6 +4,7 @@ import com.github.votes.model.MenuItem;
 import com.github.votes.model.Role;
 import com.github.votes.util.exception.NotFoundException;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
@@ -26,6 +27,10 @@ public class ValidationUtil {
 
     public static <T> List<T> checkNotFoundWithId(List<T> list, int id) {
         return checkNotFound(list, "id=" + id);
+    }
+
+    public static <T> List<T> checkNotFoundByDate(List<T> list, LocalDate date) {
+        return checkNotFound(list, "date=" + date);
     }
 
     public static void checkRole(Role actual, Role expected) {
