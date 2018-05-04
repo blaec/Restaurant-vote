@@ -1,6 +1,7 @@
 package com.github.votes.service;
 
 import com.github.votes.model.MenuItem;
+import com.github.votes.to.MenuItemTo;
 import com.github.votes.util.exception.NotFoundException;
 
 import java.time.LocalDate;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public interface MenuItemService {
 
-    MenuItem get(int id) throws NotFoundException;
+    MenuItemTo get(int id) throws NotFoundException;
 
     List<MenuItem> getAll();
 

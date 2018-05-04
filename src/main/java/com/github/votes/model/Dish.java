@@ -34,6 +34,10 @@ public class Dish extends AbstractBaseEntity {
         this.price = price;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String toString() {
         return "Dish{" +

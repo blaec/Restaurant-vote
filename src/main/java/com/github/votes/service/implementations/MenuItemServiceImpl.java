@@ -2,8 +2,11 @@ package com.github.votes.service.implementations;
 
 import com.github.votes.AuthorizedUser;
 import com.github.votes.model.MenuItem;
+import com.github.votes.repository.DishRepository;
 import com.github.votes.repository.MenuItemRepository;
+import com.github.votes.repository.RestaurantRepository;
 import com.github.votes.service.MenuItemService;
+import com.github.votes.to.MenuItemTo;
 import com.github.votes.util.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
@@ -22,15 +25,22 @@ import static com.github.votes.util.ValidationUtil.*;
 public class MenuItemServiceImpl implements MenuItemService {
 
     private final MenuItemRepository repository;
+    private final DishRepository dishRepository;
+    private final RestaurantRepository restaurantRepository;
 
     @Autowired
-    public MenuItemServiceImpl(MenuItemRepository repository) {
+    public MenuItemServiceImpl(MenuItemRepository repository, DishRepository dishRepository, RestaurantRepository restaurantRepository) {
         this.repository = repository;
+        this.dishRepository = dishRepository;
+        this.restaurantRepository = restaurantRepository;
     }
 
     @Override
-    public MenuItem get(int id) throws NotFoundException {
-        return checkNotFoundWithId(repository.get(id), id);
+    public MenuItemTo get(int id) throws NotFoundException {
+        MenuItem menuItem = checkNotFoundWithId(repository.get(id), id);
+        String dishDescription = dishRepository.get(menuItem.getDish().getId()).getDescription();
+        String restaurantName = restaurantRepository.get(menuItem.getRestaurant().getId()).getName();
+        return new MenuItemTo(id, dishDescription, restaurantName);
     }
 
     @Cacheable("menu_items")

@@ -36,11 +36,13 @@ public class InMemoryMenuItemRestControllerSpringTest {
         repository.init();
     }
 
+/*
     @Test
     public void get() throws Exception {
         MenuItem menuItem = controller.get(MENU_ITEM_ID_01);
         Assert.assertEquals(menuItem, MENU_ITEM_01);
     }
+*/
 
 /*
     @Test

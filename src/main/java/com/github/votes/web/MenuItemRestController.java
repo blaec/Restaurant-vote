@@ -2,6 +2,7 @@ package com.github.votes.web;
 
 import com.github.votes.model.MenuItem;
 import com.github.votes.service.MenuItemService;
+import com.github.votes.to.MenuItemTo;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +25,7 @@ public class MenuItemRestController {
     private MenuItemService service;
 
     @GetMapping("/{id}")
-    public MenuItem get(@PathVariable("id") int id) {
+    public MenuItemTo get(@PathVariable("id") int id) {
         log.info("get MenuItem with id {}", id);
         return service.get(id);
     }

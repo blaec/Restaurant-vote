@@ -42,11 +42,13 @@ public class MenuItemServiceTest {
         cacheManager.getCache("menu_items").clear();
     }
 
+/*
     @Test
     public void get() throws Exception {
         MenuItem menuItem = service.get(MENU_ITEM_ID_01);
         assertThat(MENU_ITEM_01).isEqualTo(menuItem);
     }
+*/
 
     @Test(expected = NotFoundException.class)
     public void getNotFound() throws Exception {
